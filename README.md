@@ -1,2 +1,4 @@
 # student_record_system
-*got in
+## some functions:-
+* stud_func;
+* adm_func;
