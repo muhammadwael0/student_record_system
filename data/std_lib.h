@@ -1,7 +1,7 @@
 /* **************** Documentation Section Start **************** */
 /*        File Name   :  std_lib.h                               */
 /*        Author      :  Muhammad Wael                           */
-/*        Description :  Standard Functions and                  */
+/*        Description :  Standard Functions and Macros           */
 /* ***************** Documentation Section End ***************** */
 
 #ifndef STD_LIB_
@@ -12,9 +12,13 @@
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
+
 #define bool _Bool
 #define false 0
 #define true 1
+#define NAME_SIZE 30
+#define PASSWORD_SIZE 20
+
 /* ********************* Macro Section End ********************* */
 
 /* ******************* Typedef Section Start ******************* */
@@ -32,7 +36,7 @@ typedef double                float64;
 
 typedef struct {
     uint16 ID;
-    uint8 name[20];
+    uint8 name[NAME_SIZE];
     uint8 gender[8];
     uint8 age;
     uint8 total_grade;
@@ -40,13 +44,13 @@ typedef struct {
 
 typedef struct {
     uint16 ID;
-    uint8 name[20];
-    uint8 password[20];
+    uint8 *name;
+    uint8 *password;
 } Admin;
 
 typedef struct {
     uint16 ID;
-    uint8 password[20];
+    uint8 password[PASSWORD_SIZE];
 } Student;
 
 /* ******************** Typedef Section End ******************** */

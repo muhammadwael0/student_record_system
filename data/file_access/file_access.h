@@ -17,7 +17,6 @@
 #define ADMINS "admins.csv"
 #define STUDENTS "students.csv"
 #define RECORDS "records.csv"
-#define STRING_SIZE 20
 /* ********************* Macro Section End ********************* */
 
 /* ******************* Typedef Section Start ******************* */

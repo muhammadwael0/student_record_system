@@ -8,7 +8,9 @@
 #define MEMORY_MANAGEMENT_H_
 
 /* ******************* Include Section Start ******************* */
-#include <../std_lib.h>
+#include "../std_lib.h"
+#include <stdlib.h>
+#include <stdio.h>
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
@@ -24,6 +26,11 @@
 /* **************** Global Variables Section End *************** */
 
 /* ************** Global Declaration Section Start ************* */
+
+void read_name (uint8 *name);
+
+void read_password (uint8 *pass, uint8 size);
+
 
 /* *************** Global Declaration Section End ************** */
 

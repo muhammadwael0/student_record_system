@@ -56,8 +56,8 @@ bool read_data_from_admins (Admin *admins, uint16 size)
     uint16 line = 0;
     uint8 iter = 0;
     uint8 ch;
-    uint8 *str = calloc(STRING_SIZE, sizeof(uint8));
-    while (ch = getc(file) != EOF)
+    uint8 *str = calloc(NAME_SIZE, sizeof(uint8));
+    while ((ch = getc(file) != EOF))
     {
         if (!line && ch == '\n')
         {
@@ -66,7 +66,7 @@ bool read_data_from_admins (Admin *admins, uint16 size)
         }
         else if (line)
         {
-            if (ch != '\n' || ch != ',') {
+            if (ch != '\n' && ch != ',') {
                 str[iter++] = ch;
             }
             else if (ch == '\n' || ch == ',')
@@ -75,6 +75,7 @@ bool read_data_from_admins (Admin *admins, uint16 size)
             }
         }
     }
+    free(str);
 }
 
 /* ****************** Global Sub-program End ******************* */
