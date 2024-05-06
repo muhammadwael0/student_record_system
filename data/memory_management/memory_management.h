@@ -8,7 +8,7 @@
 #define MEMORY_MANAGEMENT_H_
 
 /* ******************* Include Section Start ******************* */
-#include <stdlib.h>
+#include <../std_lib.h>
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
@@ -16,12 +16,7 @@
 /* ********************* Macro Section End ********************* */
 
 /* ******************* Typedef Section Start ******************* */
-typedef struct
-{
-    char ID[10];
-    char Name[20];
-    unsigned char Age;
-} Record;
+
 /* ******************** Typedef Section End ******************** */
 
 /* *************** Global Variables Section Start ************** */
