@@ -1,7 +1,7 @@
 /* **************** Documentation Section Start **************** */
 /*        File Name   :  data_management.c                       */
 /*        Author      :  Muhammad Wael                           */
-/*        Description :  Functions to edit record                */
+/*        Description :  Functions to edit record & admin        */
 /* ***************** Documentation Section End ***************** */
 
 /* ******************* Include Section Start ******************* */
@@ -12,7 +12,62 @@
 
 void edit_record (Record *record, uint8 new_grade)
 {
+    /* edit record function */
     record->total_grade = new_grade;
+}
+
+bool edit_admin_password (Admin *admin, uint8 *new_password)
+{
+    /* to edit password of admin */
+
+    /* if pass > allow size return error so iter to keep track pass digits */
+    uint8 iter = 0;
+    if (strlen(new_password) >= PASSWORD_SIZE)
+        return false;
+    while (*new_password != '\0')
+    {
+        admin->password[iter] = *new_password;
+        new_password++;
+        iter++;
+    }
+    admin->password[iter] = '\0';
+    return true;
+}
+
+bool edit_student_password (Student *student, uint8 *new_password)
+{
+    /* to edit password of student */
+
+    /* if pass > allow size return error so iter to keep track pass digits */
+    uint8 iter = 0;
+    if (strlen(new_password) >= PASSWORD_SIZE)
+        return false;
+    while (*new_password != '\0')
+    {
+        student->password[iter] = *new_password;
+        new_password++;
+        iter++;
+    }
+    student->password[iter] = '\0';
+    return true;
+}
+
+bool edit_student_name (Record *record, uint8 *new_name)
+{
+    /* to edit name of student in record */
+
+    /* if name > allow size return error so iter to keep track pass digits */
+    uint8 iter = 0;
+    if (strlen(new_name) >= NAME_SIZE)
+        return false;
+    while (*new_name != '\0')
+    {
+        record->name[iter] = *new_name;
+        new_name++;
+        iter++;
+    }
+    record->name[iter] = '\0';
+    return true;
 }
 
 /* ****************** Global Sub-program End ******************* */
@@ -21,5 +76,8 @@ void edit_record (Record *record, uint8 new_grade)
 /*  User                   Date                     Brief
  *  Muhammad Wael          5/5/2024 23:41           Adding File Layout
  *  Muhammad Wael          5/5/2024 23:46           Adding edit_record function
+ *  Muhammad Wael          8/5/2024 22:19           Adding function to edit admin password
+ *  Muhammad Wael          8/5/2024 22:31           Adding function to edit student password
+ *  Muhammad Wael          8/5/2024 22:35           Adding function to edit student name
  * */
 /* ****************** History Log Section End ****************** */

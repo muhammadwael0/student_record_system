@@ -44,8 +44,8 @@ typedef struct {
 
 typedef struct {
     uint16 ID;
-    uint8 *name;
-    uint8 *password;
+    uint8 name[NAME_SIZE];
+    uint8 password[PASSWORD_SIZE];
 } Admin;
 
 typedef struct {
@@ -69,5 +69,6 @@ typedef struct {
 /*  User                   Date                     Brief
  *  Muhammad Wael          5/5/2024 21:41           Adding File Layout
  *  Muhammad Wael          5/5/2024 22:00           Adding typedef section
+ *  Muhammad Wael          8/5/2024 22:05           modifying typedef section
  */
 /* ****************** History Log Section End ****************** */

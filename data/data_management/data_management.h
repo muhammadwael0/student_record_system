@@ -1,7 +1,7 @@
 /* **************** Documentation Section Start **************** */
 /*        File Name   :  data_management.h                       */
 /*        Author      :  Muhammad Wael                           */
-/*        Description :  Functions to edit record                */
+/*        Description :  Functions to edit record & admin        */
 /* ***************** Documentation Section End ***************** */
 
 #ifndef DATA_MANAGEMENT_
@@ -9,6 +9,7 @@
 
 /* ******************* Include Section Start ******************* */
 #include "../std_lib.h"
+#include <string.h>
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
@@ -27,6 +28,12 @@
 
 void edit_record (Record *record, uint8 new_grade);
 
+bool edit_admin_password (Admin *admin, uint8 *new_password);
+
+bool edit_student_password (Student *student, uint8 *new_password);
+
+bool edit_student_name (Record *record, uint8 *new_name);
+
 /* *************** Global Declaration Section End ************** */
 
 #endif
@@ -35,5 +42,8 @@ void edit_record (Record *record, uint8 new_grade);
 /*  User                   Date                     Brief
  *  Muhammad Wael          5/5/2024 23:41           Adding File Layout
  *  Muhammad Wael          5/5/2024 23:46           Adding edit_record function
+ *  Muhammad Wael          8/5/2024 22:19           Adding function to edit admin password
+ *  Muhammad Wael          8/5/2024 22:31           Adding function to edit student password
+ *  Muhammad Wael          8/5/2024 22:35           Adding function to edit student name
  */
 /* ****************** History Log Section End ****************** */
