@@ -11,6 +11,7 @@
 #include "../std_lib.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
@@ -27,10 +28,7 @@
 
 /* ************** Global Declaration Section Start ************* */
 
-void read_name (uint8 *name);
-
-void read_password (uint8 *pass, uint8 size);
-
+bool read_string (uint8 *name);
 
 /* *************** Global Declaration Section End ************** */
 
@@ -39,5 +37,6 @@ void read_password (uint8 *pass, uint8 size);
 /* ***************** History Log Section Start ***************** */
 /*  User                   Date                     Brief
  *  Muhammad Wael          3/5/2024 23:18           Adding File Layout
+ *  Muhammad wael          8/5/2024 20:00           Adding read_string function
  */
 /* ****************** History Log Section End ****************** */
