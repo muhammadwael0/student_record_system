@@ -86,6 +86,11 @@ bool read_data_from_records (Record *record)
     uint8 record_line_num = 0;/* for counting line number as moving in the loop */
     char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the records.csv file (one line for every iteration) */
     record_file = fopen(RECORDS, "r");/* open records.csv in read mode */
+    if (record_file == NULL)
+    {
+        printf("Error! Can't open file %s\n", RECORDS);
+        return false;
+    }
     fgets(line_buffer, 80, record_file);/* for removing the label line of records.csv before accessing the struct */
     while(fgets(line_buffer, 80, record_file) != NULL) /* the loop for assigning the read data line by line to the record struct */
     {
@@ -110,6 +115,11 @@ bool read_data_from_students (Student *student)
     uint8 student_line_num = 0;/* for counting line number as moving in the loop */
     char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the students.csv file (one line for every iteration) */
     student_file = fopen(STUDENTS, "r");/* open students.csv in read mode */
+    if (student_file == NULL)
+    {
+        printf("Error! Can't open file %s\n", STUDENTS);
+        return false;
+    }
     fgets(line_buffer, 80, student_file);/* for removing the label line of students.csv before accessing the struct */
     while(fgets(line_buffer, 80, student_file) != NULL) /* the loop for assigning the read data line by line to the student struct */
     {
@@ -134,5 +144,6 @@ bool read_data_from_students (Student *student)
  *  Muhammad Wael          5/5/2024 23:26           modifying read admin.csv function "Not complete"
  *  Mina Nabil             9/5/2024 22:30           Adding read student and record function
  *  Mina Nabil             10/5/2024 14:58          splitting read student and record function into two functions
+ *  Mina NAbil             10/5/2024 14:10          Adding file existance check to read_data_frrom_students & read_data_from_records functions
  * */
 /* ****************** History Log Section End ****************** */
