@@ -11,6 +11,7 @@
 #include "../std_lib.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
