@@ -22,7 +22,7 @@ bool write_data_to_admins (Admin *admins, uint16 size)
     uint16 iter; /* to iterate through Array of Admins */
     fprintf(file, "ID,Name,Password\n");
     for (iter = 0; iter < size; ++iter) {
-        fprintf(file, "%lu,%s,%s\n", admins[iter].ID, admins[iter].name, admins[iter].password);
+        fprintf(file, "%ld,%s,%s\n", admins[iter].ID, admins[iter].name, admins[iter].password);
     }
     fclose(file);
     return true;
@@ -294,9 +294,10 @@ bool read_data_from_students (Student *student, uint16 *size)
  *  Muhammad Wael          5/5/2024 22:35           Adding read and write admin function
  *  Muhammad Wael          5/5/2024 23:26           modifying read admin.csv function "Not complete"
  *  Mina Nabil             9/5/2024 22:30           Adding read student and record function
- *  Mina Nabil             10/5/2024 14:58          splitting read student and record function into two functions
  *  Mina Nabil             10/5/2024 14:10          Adding file existence check to read_data_from_students & read_data_from_records functions
  *  Mina Nabil             10/5/2024 14:24          Reading and modifying read_data_from_admins function
+ *  Mina Nabil             10/5/2024 14:47          Adding write to records & write to students functions
+ *  Mina Nabil             10/5/2024 14:58          splitting read student and record function into two functions
  *  Muhammad Wael          10/5/2024 21:06          modifying read functions and add dynamic allocation
  *  Muhammad Wael          10/5/2024 21:46          modifying read functions and add dynamic allocation
  * */

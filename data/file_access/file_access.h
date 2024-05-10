@@ -50,9 +50,10 @@ bool read_data_from_students (Student *student, uint16 *size);
  *  Muhammad Wael          5/5/2024 22:35           Adding read and write admin function
  *  Mina Nabil             9/5/2024 22:17           Adding read student and record function
  *  Mina Nabil             10/5/2024 13:25          included string.h library
- *  Mina Nabil             10/5/2024 14:53          splitting read student and record function into two functions
  *  Mina Nabil             10/5/2024 14:22          Reading and modifying read_data_from_admins function
- *  Muhammad Wael          10/5/2024 16:36          Adding write student and record functions
+ *  Mina Nabil             10/5/2024 14:45          Adding write to records & write to students functions
+ *  Mina Nabil             10/5/2024 14:53          splitting read student and record function into two functions
+ *  Muhammad Wael          10/5/2024 16:36          modify write student and record functions
  *  Muhammad Wael          10/5/2024 21:06          modifying read functions and add dynamic allocation
  *  Muhammad Wael          10/5/2024 21:46          modifying read functions and add dynamic allocation
  */
