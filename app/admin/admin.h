@@ -28,6 +28,8 @@
 
 /* ************** Global Declaration Section Start ************* */
 
+void view_student_record (uint32 ID);
+
 /* *************** Global Declaration Section End ************** */
 
 #endif
@@ -35,5 +37,6 @@
 /* ***************** History Log Section Start ***************** */
 /*  User                   Date                     Brief
  *  Muhammad Wael          10/5/2024 00:45           Adding File Layout
+ *  Muhammad Wael          10/5/2024 22:41           Adding view student record function
  */
 /* ****************** History Log Section End ****************** */

@@ -47,6 +47,6 @@ bool authenticate_admin (uint32 id, uint8 *password)
 /* ***************** History Log Section Start ***************** */
 /*  User                   Date                     Brief
  *  Muhammad Wael          10/5/2024 22:10          Adding File Layout
- *  Muhammad Wael          10/5/2024 22:29          add authenticate admin function 
+ *  Muhammad Wael          10/5/2024 22:29          add authenticate admin function
  * */
 /* ****************** History Log Section End ****************** */

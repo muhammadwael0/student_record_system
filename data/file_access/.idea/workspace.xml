@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2d8dfa8-38e2-427d-a76e-9b052b788566" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../app/authentication/authentication.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/authentication/authentication.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/authentication/authentication.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/authentication/authentication.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
