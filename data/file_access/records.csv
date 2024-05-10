@@ -1,21 +1,21 @@
-ID, Age, Total Grade (fullmark 100), Gender, Name
-2345543, 18, 75, M, Ahmad tarek sarhan
-2345544, 18, 78, M, Amr khaled nasser
-2345545, 19, 66, M, Amr morsi tawfiq
-2345546, 19, 68, M, Ezz el-din ahmed
-2345547, 18, 72, F, Farah hamed qadri
-2345548, 18, 90, M, Kareem salem Eladawy
-2345549, 18, 85, M, Karim ashraf rizk
-2345550, 19, 88, M, kyrollos ishaq ibrahim
-2345551, 18, 57, M, Mark makram samoul
-2345552, 18, 69, F, Menna walid muhamad
-2345553, 19, 71, M, Muhamad zakaria ali
-2345554, 19, 60, M, Mustafa fouad rashad
-2345555, 19, 62, F, Nada wael refaat
-2345556, 19, 74, M, Nader fattouh ashour
-2345557, 19, 94, M, Nadine ahmed amin
-2345558, 18, 86, M, Omar ragab kamel
-2345559, 18, 73, M, Sameh sami salama
-2345560, 18, 89, M, Taha ramadan badran
-2345561, 19, 77, M, Youssef khaled saad
-2345562, 21, 52, M, Ziad sami ismail
+ID,Name,Age,Gender,Total Grade (fullmark 100)
+2345543,Ahmad tarek sarhan,18,Male,75,
+2345544,Amr khaled nasser,18,Male,78,
+2345545,Amr morsi tawfiq,19,Male,66,
+2345546,Ezz el-din ahmed,19,Male,68,
+2345547,Farah hamed qadri,18,Female,72,
+2345548,Kareem salem Eladawy,18,Male,90,
+2345549,Karim ashraf rizk,18,Male,85,
+2345550,kyrollos ishaq ibrahim,19,Male,88,
+2345551,Mark makram samoul,18,Male,57,
+2345552,Menna walid muhamad,18,Female,69,
+2345553,Muhamad zakaria ali,19,Male,71,
+2345554,Mustafa fouad rashad,19,Male,60,
+2345555,Nada wael refaat,19,Female,62,
+2345556,Nader fattouh ashour,19,Male,74,
+2345557,Nadine ahmed amin,19,Male,94,
+2345558,Omar ragab kamel,18,Male,86,
+2345559,Sameh sami salama,18,Male,73,
+2345560,Taha ramadan badran,18,Male,89,
+2345561,Youssef khaled saad,19,Male,77,
+2345562,Ziad sami ismail,21,Male,52,

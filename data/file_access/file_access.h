@@ -46,5 +46,6 @@ bool read_data_from_student_record (Record *record, Student *student);
  *  Muhammad Wael          3/5/2024 23:18           Adding File Layout
  *  Muhammad Wael          5/5/2024 22:35           Adding read and write admin function
  *  Mina Nabil             9/5/2024 22:17           Adding read student and record function
+ *  Mina Nabil             10/5/2024 13:25          included string.h library
  */
 /* ****************** History Log Section End ****************** */
