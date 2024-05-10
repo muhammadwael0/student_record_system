@@ -36,8 +36,8 @@ bool write_data_to_records (Record *records, uint16 size);
 
 int16 get_num_lines (FILE *file);
 
-bool read_data_from_admins (Admin *admin);
-bool read_data_from_records (Record *record);
+bool read_data_from_admins (Admin *admin, uint16 *size);
+bool read_data_from_records (Record *record, uint16 *size);
 bool read_data_from_students (Student *student, uint16 *size);
 
 /* *************** Global Declaration Section End ************** */
@@ -53,5 +53,7 @@ bool read_data_from_students (Student *student, uint16 *size);
  *  Mina Nabil             10/5/2024 14:53          splitting read student and record function into two functions
  *  Mina Nabil             10/5/2024 14:22          Reading and modifying read_data_from_admins function
  *  Muhammad Wael          10/5/2024 16:36          Adding write student and record functions
+ *  Muhammad Wael          10/5/2024 21:06          modifying read functions and add dynamic allocation
+ *  Muhammad Wael          10/5/2024 21:46          modifying read functions and add dynamic allocation
  */
 /* ****************** History Log Section End ****************** */
