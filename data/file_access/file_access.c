@@ -45,37 +45,32 @@ int16 get_num_lines (FILE *file)
     return --count;
 }
 
-bool read_data_from_admins (Admin *admins, uint16 size)
+bool read_data_from_admins (Admin *admin)
 {
-    FILE *file = fopen(ADMINS, "r");
-    if (file == NULL)
+    /* read_data_from_admins Function used to read from admins.csv
+     * it takes array of admin*/
+    FILE *admin_file = fopen(ADMINS, "r");
+    if (admin_file == NULL)
     {
         printf("Error! Can't open file %s\n", ADMINS);
         return false;
     }
-    uint16 line = 0;
-    uint8 iter = 0;
-    uint8 ch;
-    uint8 *str = calloc(NAME_SIZE, sizeof(uint8));
-    while ((ch = getc(file) != EOF))
+    uint8 admin_line_num = 0;/* for counting line number as moving in the loop */
+    char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the admins.csv file (one line for every iteration) */
+    admin_file = fopen(ADMINS, "r");/* open admins.csv in read mode */
+    fgets(line_buffer, 80, admin_file);/* for removing the label line of admins.csv before accessing the struct */
+    while(fgets(line_buffer, 80, admin_file) != NULL) /* the loop for assigning the read data line by line to the admin struct */
     {
-        if (!line && ch == '\n')
-        {
-            ++line;
-            continue;
-        }
-        else if (line)
-        {
-            if (ch != '\n' && ch != ',') {
-                str[iter++] = ch;
-            }
-            else if (ch == '\n' || ch == ',')
-            {
-
-            }
-        }
+        /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
+        sscanf(strtok(line_buffer, ","), "%d", &admin[admin_line_num].ID);
+        sscanf(strtok(NULL, ","), "%s", admin[admin_line_num].name);
+        sscanf(strtok(NULL, ""), "%s", admin[admin_line_num].password);
+        admin_line_num++;
     }
-    free(str);
+    free(line_buffer);
+    line_buffer = NULL;
+    fclose(admin_file);
+    return true;
 }
 
 bool read_data_from_records (Record *record)
@@ -145,5 +140,6 @@ bool read_data_from_students (Student *student)
  *  Mina Nabil             9/5/2024 22:30           Adding read student and record function
  *  Mina Nabil             10/5/2024 14:58          splitting read student and record function into two functions
  *  Mina NAbil             10/5/2024 14:10          Adding file existance check to read_data_frrom_students & read_data_from_records functions
+ *  Mian Nabil             10/5/2024 14:24          Readding and modifing read_data_from_admins function
  * */
 /* ****************** History Log Section End ****************** */

@@ -34,7 +34,7 @@ bool write_data_to_admins (Admin *admins, uint16 size);
 
 int16 get_num_lines (FILE *file);
 
-bool read_data_from_admins (Admin *admins, uint16 size);
+bool read_data_from_admins (Admin *admin);
 bool read_data_from_records (Record *record);
 bool read_data_from_students (Student *student);
 
@@ -49,5 +49,6 @@ bool read_data_from_students (Student *student);
  *  Mina Nabil             9/5/2024 22:17           Adding read student and record function
  *  Mina Nabil             10/5/2024 13:25          included string.h library
  *  Mina Nabil             10/5/2024 14:53          splitting read student and record function into two functions
+ *  Mian Nabil             10/5/2024 14:22          Readding and modifing read_data_from_admins function
  */
 /* ****************** History Log Section End ****************** */
