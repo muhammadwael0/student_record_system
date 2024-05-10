@@ -19,13 +19,54 @@ bool write_data_to_admins (Admin *admins, uint16 size)
         return false;
     }
     uint16 iter; /* to iterate through Array of Admins */
-    fprintf(file, "ID, Name, Password\n");
+    fprintf(file, "ID,Name,Password\n");
     for (iter = 0; iter < size; ++iter) {
-        fprintf(file, "%d, %s, %s\n", admins[iter].ID, admins[iter].name, admins[iter].password);
+        fprintf(file, "%d,%s,%s\n", admins[iter].ID, admins[iter].name, admins[iter].password);
     }
     fclose(file);
     return true;
 }
+
+bool write_data_to_records (Record *records, uint16 size)
+{
+    /* write_data_to_records Function used to write to records.csv
+     * it takes array of records and size of array */
+    FILE *record_file = fopen(RECORDS, "w"); /* open records.csv in write mode */
+    if (record_file == NULL)
+    {
+        printf("Error in open %s\n", RECORDS);
+        return false;
+    }
+    uint16 iter; /* to iterate through Array of records */
+    fprintf(record_file, "ID,Name,Age,Gender,Total Grade (fullmark 100)\n");
+    for (iter = 0; iter < size; ++iter)
+    {
+        fprintf(record_file, "%d,%s,%d,%s,%d\n", records[iter].ID, records[iter].name, records[iter].age, records[iter].gender, records[iter].total_grade);
+    }
+    fclose(record_file);
+    return true;
+}
+
+bool write_data_to_students (Student *students, uint16 size)
+{
+    /* write_data_to_students Function used to write to students.csv
+     * it takes array of students and size of array */
+    FILE *student_file = fopen(STUDENTS, "w"); /* open students.csv in write mode */
+    if (student_file == NULL)
+    {
+        printf("Error in open %s\n", STUDENTS);
+        return false;
+    }
+    uint16 iter; /* to iterate through Array of students */
+    fprintf(student_file, "ID,Password\n");
+    for (iter = 0; iter < size; ++iter)
+    {
+        fprintf(student_file, "%d,%s\n", students[iter].ID, students[iter].password);
+    }
+    fclose(student_file);
+    return true;
+}
+
 int16 get_num_lines (FILE *file)
 {
     /* get_num_lines Function used to get number of lines
@@ -141,5 +182,6 @@ bool read_data_from_students (Student *student)
  *  Mina Nabil             10/5/2024 14:58          splitting read student and record function into two functions
  *  Mina NAbil             10/5/2024 14:10          Adding file existance check to read_data_frrom_students & read_data_from_records functions
  *  Mian Nabil             10/5/2024 14:24          Readding and modifing read_data_from_admins function
+ *  Mina Nabil             10/5/2024 14:47          Adding write to records & write to students functions
  * */
 /* ****************** History Log Section End ****************** */
