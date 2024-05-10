@@ -37,7 +37,7 @@ typedef double                float64;
 typedef struct {
     uint32 ID;
     uint8 name[NAME_SIZE];
-    uint8 gender;
+    uint8 gender[7];
     uint8 age;
     uint8 total_grade;
 } Record;
