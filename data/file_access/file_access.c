@@ -78,29 +78,49 @@ bool read_data_from_admins (Admin *admins, uint16 size)
     free(str);
 }
 
-bool read_data_from_student_record (Record *record, Student *student)
+bool read_data_from_records (Record *record)
 {
-    uint8 r_lnum = 0, s_lnum = 0;/*for moving in the struct array of Student and Record*/
-    FILE *rfile, *sfile;
-    /*records*/
-    char *rem_flin = (char*)calloc(60, sizeof(char));
-    rfile = fopen(RECORDS, "r");
-    fgets(rem_flin, 60, rfile);/*for removing the label line of records.csv before accessing the struct*/
-    while(fscanf(rfile, "%d, %d, %d, %c, %[^\n]s", &record[r_lnum].ID, &record[r_lnum].age, &record[r_lnum].total_grade, &record[r_lnum].gender, record[r_lnum].name) == 5)
-        r_lnum++;
-    /*students*/
-    char *rem2_flin = (char*)calloc(50, sizeof(char));
-    sfile = fopen(STUDENTS, "r");
-    fgets(rem2_flin, 50, sfile);/*for removing the label line of students.csv before accessing the struct*/
-    while(fscanf(sfile, "%d, %[^\n]s", &student[s_lnum].ID, student[s_lnum].password) == 2)
-        s_lnum++;
-    /*end all*/
-    free(rem_flin);
-    free(rem2_flin);
-    rem_flin = NULL;
-    rem2_flin = NULL;
-    fclose(rfile);
-    fclose(sfile);
+    /* read_data_from_records Function used to read from records.csv
+     * it takes array of record*/
+    FILE *record_file;
+    uint8 record_line_num = 0;/* for counting line number as moving in the loop */
+    char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the records.csv file (one line for every iteration) */
+    record_file = fopen(RECORDS, "r");/* open records.csv in read mode */
+    fgets(line_buffer, 80, record_file);/* for removing the label line of records.csv before accessing the struct */
+    while(fgets(line_buffer, 80, record_file) != NULL) /* the loop for assigning the read data line by line to the record struct */
+    {
+        /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
+        sscanf(strtok(line_buffer, ","), "%d", &record[record_line_num].ID);
+        sscanf(strtok(NULL, ","), "%[^,]s", record[record_line_num].name);
+        sscanf(strtok(NULL, ","), "%d", &record[record_line_num].age);
+        sscanf(strtok(NULL, ","), "%s", record[record_line_num].gender);
+        sscanf(strtok(NULL, ""), "%d", &record[record_line_num].total_grade);
+        record_line_num++;
+    }
+    free(line_buffer);
+    line_buffer = NULL;
+    fclose(record_file);
+    return true;
+}
+bool read_data_from_students (Student *student)
+{
+    /* read_data_from_students Function used to read from students.csv
+     * it takes array of student*/
+    FILE *student_file;
+    uint8 student_line_num = 0;/* for counting line number as moving in the loop */
+    char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the students.csv file (one line for every iteration) */
+    student_file = fopen(STUDENTS, "r");/* open students.csv in read mode */
+    fgets(line_buffer, 80, student_file);/* for removing the label line of students.csv before accessing the struct */
+    while(fgets(line_buffer, 80, student_file) != NULL) /* the loop for assigning the read data line by line to the student struct */
+    {
+        /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
+        sscanf(strtok(line_buffer, ","), "%d", &student[student_line_num].ID);
+        sscanf(strtok(NULL, ""), "%s", student[student_line_num].password);
+        student_line_num++;
+    }
+    free(line_buffer);
+    line_buffer = NULL;
+    fclose(student_file);
     return true;
 }
 
@@ -113,5 +133,6 @@ bool read_data_from_student_record (Record *record, Student *student)
  *  Muhammad Wael          5/5/2024 22:35           Adding read and write admin function
  *  Muhammad Wael          5/5/2024 23:26           modifying read admin.csv function "Not complete"
  *  Mina Nabil             9/5/2024 22:30           Adding read student and record function
+ *  Mina Nabil             10/5/2024 14:58          splitting read student and record function into two functions
  * */
 /* ****************** History Log Section End ****************** */
