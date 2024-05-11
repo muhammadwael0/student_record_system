@@ -54,7 +54,7 @@ uint16 authenticate_student_id (uint32 id)
 
     for (iter = 0; iter < size; ++iter)
     {
-        if (id == admins[iter].ID)
+        if (id == students[iter].ID)
         {
             return iter;
         }
