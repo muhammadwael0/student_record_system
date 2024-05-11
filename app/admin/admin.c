@@ -78,8 +78,8 @@ bool edit_password_of_admin (uint32 ID)
     for (iter = 0; iter < size; ++iter) {
         if (ID == admins[iter].ID)
         {
-            uint8 pass[20];
-            if (!read_string(pass))
+            uint8 pass[PASSWORD_SIZE];
+            if (!read_string_password(pass))
             {
                 return false;
             }
