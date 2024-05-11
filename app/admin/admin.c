@@ -29,10 +29,12 @@ void view_student_record (uint32 ID)
             printf("Age: %u\n", records[iter].age);
             printf("Gender: %s\n", records[iter].gender);
             printf("Total Grade: %u\n", records[iter].total_grade);
+            free(records);
             return;
         }
     }
     printf("Wrong ID\n");
+    free(records);
 }
 
 bool edit_grade (uint32 ID)
@@ -55,12 +57,15 @@ bool edit_grade (uint32 ID)
             edit_record(&records[iter], new_grade); /* assign new grade to records */
 
             /* write data to records.csv for permanent change */
-            if (!write_data_to_records(records, size))
+            if (!write_data_to_records(records, size)) {
+                free(records);
                 return false;
-
+            }
+            free(records);
             return true;
         }
     }
+    free(records);
     return false;
 }
 
@@ -81,19 +86,45 @@ bool edit_password_of_admin (uint32 ID)
             uint8 pass[PASSWORD_SIZE];
             if (!read_string_password(pass))
             {
+                free(admins);
                 return false;
             }
              /* assign password to admins */
             edit_admin_password(&admins[iter], pass);
 
             /* write data to admins.csv for permanent change */
-            if (!write_data_to_admins(admins, size))
+            if (!write_data_to_admins(admins, size)) {
+                free (admins);
                 return false;
-
+            }
+            free (admins);
             return true;
         }
     }
+    free (admins);
     return false;
+}
+
+void view_all_records (void)
+{
+    /* view_all_records function takes nothing and view all records of students */
+    Record *records = NULL;
+    uint16 size = 0; /* number of records */
+
+    if (!read_data_from_records(records, &size)) /* if there is error exit */
+        return;
+
+    uint16 iter = 0; /* to iterate through array of records */
+
+    for (iter = 0; iter < size; ++iter) {
+        printf("Record %d\n", iter);
+        printf("  ID: %ld\n", records[iter].ID);
+        printf("  Name: %s\n", records[iter].name);
+        printf("  Age: %u\n", records[iter].age);
+        printf("  Gender: %s\n", records[iter].gender);
+        printf("  Total Grade: %u\n", records[iter].total_grade);
+    }
+    free (records);
 }
 
 /* ****************** Global Sub-program End ******************* */
