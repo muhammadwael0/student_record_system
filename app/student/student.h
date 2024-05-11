@@ -30,7 +30,8 @@
 
 /* ************** Global Declaration Section Start ************* */
 
-
+bool edit_name (uint32 ID);
+bool edit_password (uint32 ID);
 
 /* *************** Global Declaration Section End ************** */
 
@@ -39,5 +40,6 @@
 /* ***************** History Log Section Start ***************** */
 /*  User                   Date                     Brief
  *  Mina Nabil             11/5/2024 20:10          Adding File Layout
+ *  Mina Nabil             11/5/2024 21:48          Adding editing name and password functions
  */
 /* ****************** History Log Section End ****************** */
