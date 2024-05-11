@@ -27,18 +27,21 @@ bool authenticate_admin (uint32 id, uint8 *password)
             {
                 printf("Login Successful\n");
                 free(admins); /* free allocated memory */
+                admins = NULL;
                 return true;
             }
             else
             {
                 printf("Wrong password\n");
                 free(admins); /* free allocated memory */
+                admins = NULL;
                 return false;
             }
         }
     }
     printf("Wrong ID\n");
     free(admins); /* free allocated memory */
+    admins = NULL;
     return false;
 }
 
@@ -61,6 +64,7 @@ uint16 authenticate_student_id (uint32 id)
     }
     //printf("Wrong ID\n");
     free(students); /* free allocated memory */
+    students = NULL;
     return false;
 }
 
@@ -79,19 +83,23 @@ bool authenticate_student_password (uint16 id_check, uint8 *password)
         {
             printf("Login Successful\n");
             free(students); /* free allocated memory */
+            students = NULL;
             return true;
         }
         else
         {
             printf("Wrong password\n");
             free(students); /* free allocated memory */
+            students = NULL;
             return false;
         }
     }
     /*could be removed*/
-     else printf("Wrong ID\n");
+    else
+        printf("Wrong ID\n");
     /*****************/
     free(students); /* free allocated memory */
+    students = NULL;
     return false;
 }
 
@@ -102,5 +110,6 @@ bool authenticate_student_password (uint16 id_check, uint8 *password)
  *  Muhammad Wael          10/5/2024 22:10          Adding File Layout
  *  Muhammad Wael          10/5/2024 22:29          add authenticate admin function
  *  Mina Nabil             11/5/2024 19:51          add authenticate_student_id & authenticate_student_password functions
+ *  Muhammad Wael          12/5/2024 1:26           small fix
  * */
 /* ****************** History Log Section End ****************** */
