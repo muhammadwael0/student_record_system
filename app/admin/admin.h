@@ -35,6 +35,7 @@ bool edit_grade (uint32 ID);
 bool edit_password_of_admin (uint32 ID);
 void view_all_records (void);
 bool remove_student_record (uint32 ID);
+bool add_student_record (void);
 
 /* *************** Global Declaration Section End ************** */
 
@@ -47,5 +48,6 @@ bool remove_student_record (uint32 ID);
  *  Muhammad Wael          11/5/2024 00:11           Adding edit password and edit grade functions
  *  Muhammad wael          11/5/2024 23:11           Adding view all records function
  *  Muhammad Wael          12/5/2024 00:16           Adding remove record function
+ *  Muhammad Wael          12/5/2024 00:49           Adding add record function
  */
 /* ****************** History Log Section End ****************** */

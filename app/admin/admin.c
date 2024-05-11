@@ -239,6 +239,81 @@ bool remove_student_record (uint32 ID)
     return true;
 }
 
+bool add_student_record (void)
+{
+    /* add_student_record function to add record to records */
+    Record *records = NULL;
+    uint16 size_of_records = 0; /* number of records */
+
+    if (!read_data_from_records(records, &size_of_records)) /* if there is error return false */
+        return false;
+
+    Student *students = NULL;
+    uint16 size_of_students = 0; /* number of students */
+
+    if (!read_data_from_students(students, &size_of_students)) /* if there is error return false */
+    {
+        free (records);
+        return false;
+    }
+    uint16 iter; /* to iterate through array of records and students */
+
+    records = realloc(records, size_of_records + 1);
+
+    if (records == NULL)
+    {
+        free(records);
+        free(students);
+        return false;
+    }
+
+    /* new students that hold the new data */
+    students = realloc(students, size_of_students + 1);
+
+    if (students == NULL)
+    {
+        free (records);
+        free (students);
+        return false;
+    }
+
+    students[size_of_students].ID = students[size_of_students - 1].ID + 1;
+    strcpy(students[size_of_students].password, "1234");
+
+    records[size_of_records].ID = students[size_of_students - 1].ID + 1;
+    if (!read_string_name(records[size_of_records].name)) /* take a string name from user */
+    {
+        free (records);
+        free (students);
+        return false;
+    }
+    /* take necessary data from user */
+    printf("Enter Gender (Male / Female): ");
+    scanf("%s", records[size_of_records].gender);
+    printf("Enter Age: ");
+    scanf("%u", records[size_of_records].age);
+    printf("Enter total grade: ");
+    scanf("%u", records[size_of_records].total_grade);
+    /* write new data to records */
+    if(!write_data_to_records(records, size_of_records + 1))
+    {
+        free (records);
+        free (students);
+        return false;
+    }
+    /* write new data to students */
+    if(!write_data_to_students(students, size_of_students + 1))
+    {
+        free (records);
+        free (students);
+        return false;
+    }
+
+    free (records);
+    free (students);
+    return true;
+}
+
 /* ****************** Global Sub-program End ******************* */
 
 /* ***************** History Log Section Start ***************** */
@@ -248,5 +323,6 @@ bool remove_student_record (uint32 ID)
  *  Muhammad Wael          11/5/2024 00:11           Adding edit password and edit grade functions
  *  Muhammad wael          11/5/2024 23:11           Adding view all records function
  *  Muhammad Wael          12/5/2024 00:16           Adding remove record function
- * */
+ *  Muhammad Wael          12/5/2024 00:49           Adding add record function
+ */
 /* ****************** History Log Section End ****************** */
