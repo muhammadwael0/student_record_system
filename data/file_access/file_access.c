@@ -81,6 +81,7 @@ int16 get_num_lines (FILE *file)
         if (ch == '\n')
             count++;
     }
+    rewind(file);/*to return to first line of the file ofter finishing*/
     return --count;
 }
 
@@ -300,5 +301,6 @@ bool read_data_from_students (Student *student, uint16 *size)
  *  Mina Nabil             10/5/2024 14:58          splitting read student and record function into two functions
  *  Muhammad Wael          10/5/2024 21:06          modifying read functions and add dynamic allocation
  *  Muhammad Wael          10/5/2024 21:46          modifying read functions and add dynamic allocation
+ *  Mina Nabil             11/5/2024 12:49          fixing get_num_lines function to return to first line after finishing
  * */
 /* ****************** History Log Section End ****************** */
