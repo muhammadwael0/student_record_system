@@ -10,14 +10,14 @@
 
 /* ***************** Global Sub-program Start ****************** */
 
-void view_student_record (uint32 ID)
+bool view_student_record (uint32 ID)
 {
     /* view_student_record function takes ID if ID found return record */
     Record *records = NULL;
     uint16 size = 0; /* number of records */
 
     if (!read_data_from_records(records, &size)) /* if there is error exit */
-        return;
+        return false;
 
     uint16 iter = 0; /* to iterate through array of records */
 
@@ -31,12 +31,13 @@ void view_student_record (uint32 ID)
             printf("Total Grade: %u\n", records[iter].total_grade);
             free(records);
             records = NULL;
-            return;
+            return true;
         }
     }
     printf("Wrong ID\n");
     free(records);
     records = NULL;
+    return false;
 }
 
 bool edit_grade (uint32 ID)
@@ -374,5 +375,6 @@ bool add_student_record (void)
  *  Muhammad Wael          12/5/2024 00:16           Adding remove record function
  *  Muhammad Wael          12/5/2024 00:49           Adding add record function
  *  Muhammad Wael          12/5/2024 01:52           modify all functions to handle free function
+ *  Mina Nabil             12/5/2024 02:48           Changed view_student_record function return type to bool
  */
 /* ****************** History Log Section End ****************** */
