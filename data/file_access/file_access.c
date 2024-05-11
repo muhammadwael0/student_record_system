@@ -25,6 +25,7 @@ bool write_data_to_admins (Admin *admins, uint16 size)
         fprintf(file, "%ld,%s,%s\n", admins[iter].ID, admins[iter].name, admins[iter].password);
     }
     fclose(file);
+    file = NULL;
     return true;
 }
 
@@ -43,6 +44,7 @@ bool write_data_to_students (Student *students, uint16 size)
         fprintf(file, "%lu,%s\n", students[iter].ID, students[iter].password);
     }
     fclose(file);
+    file = NULL;
     return true;
 }
 
@@ -62,6 +64,7 @@ bool write_data_to_records (Record *records, uint16 size)
                 records[iter].age, records[iter].gender, records[iter].total_grade);
     }
     fclose(file);
+    file = NULL;
     return true;
 }
 
@@ -130,10 +133,26 @@ bool read_data_from_admins (Admin *admin, uint16 *size)
     /* dynamic allocate array of admins */
     admin = malloc(*size * sizeof (Admin));
 
+    if (admin == NULL)
+    {
+        printf("Error! Can't Allocate space for admin structure\n");
+        fclose(file);
+        file = NULL;
+        return false;
+    }
+
     uint16 iter = 0; /* iterate through lines */
 
     /* buffer for temporary storing every line in the admins.csv file (one line for every iteration) */
     uint8 *line_buffer = (uint8*)calloc(80, sizeof(uint8));
+
+    if (line_buffer == NULL)
+    {
+        printf("Error! Can't Allocate space\n");
+        fclose(file);
+        file = NULL;
+        return false;
+    }
 
     /* for removing the label line of admins.csv before accessing the struct */
     fgets(line_buffer, 80, file);
@@ -149,6 +168,7 @@ bool read_data_from_admins (Admin *admin, uint16 *size)
     free(line_buffer);
     line_buffer = NULL;
     fclose(file);
+    file = NULL;
     return true;
 }
 
@@ -226,10 +246,26 @@ bool read_data_from_records (Record *record, uint16 *size)
     /* dynamic allocate array of records */
     record = malloc(*size * sizeof (Record));
 
+    if (record == NULL)
+    {
+        printf("Error! Can't Allocate Space for records\n");
+        fclose(file);
+        file = NULL;
+        return false;
+    }
+
     uint16 iter = 0; /* iterate through lines */
 
     /* buffer for temporary storing every line in the records.csv file (one line for every iteration) */
     uint8 *line_buffer = (uint8*)calloc(80, sizeof(uint8));
+
+    if (line_buffer == NULL)
+    {
+        printf("Error! Can't Allocate Space\n");
+        fclose(file);
+        file = NULL;
+        return false;
+    }
 
     /* for removing the label line of records.csv before accessing the struct */
     fgets(line_buffer, 80, file);
@@ -247,6 +283,7 @@ bool read_data_from_records (Record *record, uint16 *size)
     free(line_buffer);
     line_buffer = NULL;
     fclose(file);
+    file = NULL;
     return true;
 }
 
@@ -267,10 +304,26 @@ bool read_data_from_students (Student *student, uint16 *size)
     /* dynamic allocate array of students */
     student = malloc(*size * sizeof (Student));
 
+    if (student == NULL)
+    {
+        printf("Error! Can't Allocate space for student\n");
+        fclose(file);
+        file = NULL;
+        return false;
+    }
+
     uint16 iter = 0; /* iterate through lines */
 
     /* buffer for temporary storing every line in the students.csv file (one line for every iteration) */
     uint8 *line_buffer = (uint8*)calloc(80, sizeof(uint8));
+
+    if (line_buffer == NULL)
+    {
+        printf("Error! Can't Allocate space\n");
+        fclose(file);
+        file = NULL;
+        return false;
+    }
 
     /* for removing the label line of students.csv before accessing the struct */
     fgets(line_buffer, 80, file);
@@ -284,6 +337,7 @@ bool read_data_from_students (Student *student, uint16 *size)
     free(line_buffer);
     line_buffer = NULL;
     fclose(file);
+    file = NULL;
     return true;
 }
 
@@ -302,5 +356,6 @@ bool read_data_from_students (Student *student, uint16 *size)
  *  Muhammad Wael          10/5/2024 21:06          modifying read functions and add dynamic allocation
  *  Muhammad Wael          10/5/2024 21:46          modifying read functions and add dynamic allocation
  *  Mina Nabil             11/5/2024 12:49          fixing get_num_lines function to return to first line after finishing
+ *  Muhammad Wael          12/5/2024 01:39          big fix to all function handle fclose and free functions
  * */
 /* ****************** History Log Section End ****************** */
