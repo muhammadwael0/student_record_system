@@ -62,7 +62,7 @@ bool edit_student_name (Record *record, uint8 *new_name)
     //uint8 iter = 0;
     if (strlen(new_name) >= NAME_SIZE)
         return false;
-    sscanf(new_name, "%[^\0]s", record->password);
+    sscanf(new_name, "%[^\0]s", record->name);
     /*while (*new_name != '\0')
     {
         record->name[iter] = *new_name;
@@ -83,5 +83,6 @@ bool edit_student_name (Record *record, uint8 *new_name)
  *  Muhammad Wael          8/5/2024 22:31           Adding function to edit student password
  *  Muhammad Wael          8/5/2024 22:35           Adding function to edit student name
  *  Mina Nabil             11/5/2024 16:55          made some adjustments to the functions to make it simpler (to be viewed)
+ *  Muhammad Wael          12/5/2024 1:10           simple fix
  * */
 /* ****************** History Log Section End ****************** */

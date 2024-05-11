@@ -10,6 +10,7 @@
 /* ******************* Include Section Start ******************* */
 #include "../std_lib.h"
 #include <string.h>
+#include <stdio.h>
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
@@ -45,5 +46,6 @@ bool edit_student_name (Record *record, uint8 *new_name);
  *  Muhammad Wael          8/5/2024 22:19           Adding function to edit admin password
  *  Muhammad Wael          8/5/2024 22:31           Adding function to edit student password
  *  Muhammad Wael          8/5/2024 22:35           Adding function to edit student name
+ *  Muhammad Wael          12/5/2024 1:10           include stdio.h for sscanf
  */
 /* ****************** History Log Section End ****************** */
