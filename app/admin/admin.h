@@ -34,6 +34,7 @@ void view_student_record (uint32 ID);
 bool edit_grade (uint32 ID);
 bool edit_password_of_admin (uint32 ID);
 void view_all_records (void);
+bool remove_student_record (uint32 ID);
 
 /* *************** Global Declaration Section End ************** */
 
@@ -44,5 +45,7 @@ void view_all_records (void);
  *  Muhammad Wael          10/5/2024 00:45           Adding File Layout
  *  Muhammad Wael          10/5/2024 22:41           Adding view student record function
  *  Muhammad Wael          11/5/2024 00:11           Adding edit password and edit grade functions
+ *  Muhammad wael          11/5/2024 23:11           Adding view all records function
+ *  Muhammad Wael          12/5/2024 00:16           Adding remove record function
  */
 /* ****************** History Log Section End ****************** */

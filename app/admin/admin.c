@@ -14,7 +14,7 @@ void view_student_record (uint32 ID)
 {
     /* view_student_record function takes ID if ID found return record */
     Record *records = NULL;
-    uint16 size; /* number of records */
+    uint16 size = 0; /* number of records */
 
     if (!read_data_from_records(records, &size)) /* if there is error exit */
         return;
@@ -41,7 +41,7 @@ bool edit_grade (uint32 ID)
 {
     /* edit_grade function takes ID if ID found edit grade record */
     Record *records = NULL;
-    uint16 size; /* number of records */
+    uint16 size = 0; /* number of records */
 
     if (!read_data_from_records(records, &size)) /* if there is error exit */
         return false;
@@ -73,7 +73,7 @@ bool edit_password_of_admin (uint32 ID)
 {
     /* edit_admin_password function takes ID and modify admin pass */
     Admin *admins = NULL;
-    uint16 size; /* number of records */
+    uint16 size = 0; /* number of records */
 
     if (!read_data_from_admins(admins, &size)) /* if there is error exit */
         return false;
@@ -127,6 +127,118 @@ void view_all_records (void)
     free (records);
 }
 
+bool remove_student_record (uint32 ID)
+{
+    /* remove_student_record function takes ID if found remove record */
+
+    Record *records = NULL;
+    uint16 size_of_records = 0; /* number of records */
+
+    if (!read_data_from_records(records, &size_of_records)) /* if there is error return false */
+        return false;
+
+    Student *students = NULL;
+    uint16 size_of_students = 0; /* number of students */
+
+    if (!read_data_from_students(students, &size_of_students)) /* if there is error return false */
+    {
+        free (records);
+        return false;
+    }
+
+    uint16 iter; /* to iterate through array of records and students */
+    uint16 iter_of_new_array; /* to iterate through new array of records and students */
+    /* new records that hold the new data */
+    Record *new_records = malloc((size_of_records - 1) * sizeof (Record));
+    if (new_records == NULL) {
+        free(records);
+        free(students);
+        return false;
+    }
+    /* new students that hold the new data */
+    Student *new_students = malloc((size_of_students - 1) * sizeof (Student));
+
+    if (new_students == NULL)
+    {
+        free (records);
+        free (students);
+        free (new_records);
+        return false;
+    }
+
+    bool is_id_in_records = false;
+    /* checks if id in records */
+    for (iter = 0; iter < size_of_records; ++iter) {
+        if (ID == records[iter].ID) {
+            is_id_in_records = true;
+        }
+    }
+
+    if (!is_id_in_records)
+    {
+        free (records);
+        free (students);
+        free(new_records);
+        free(new_students);
+        return false;
+    }
+    /* assign new data to new array */
+    for (iter = 0, iter_of_new_array = 0; iter < size_of_records; ++iter) {
+        if (ID != records[iter].ID) {
+            new_records[iter_of_new_array] = records[iter];
+            iter_of_new_array++;
+        }
+    }
+
+    bool is_id_in_students = false;
+    /* checks if id in students */
+    for (iter = 0; iter < size_of_students; ++iter) {
+        if (ID == students[iter].ID) {
+            is_id_in_students = true;
+        }
+    }
+
+    if (!is_id_in_students)
+    {
+        free (records);
+        free (students);
+        free (new_records);
+        free (new_students);
+        return false;
+    }
+    /* assign new data to new array */
+    for (iter = 0, iter_of_new_array = 0; iter < size_of_students; ++iter) {
+        if (ID != students[iter].ID) {
+            new_students[iter_of_new_array] = students[iter];
+            iter_of_new_array++;
+        }
+    }
+    /* write new data to records */
+    if(!write_data_to_records(new_records, size_of_records - 1))
+    {
+        free (records);
+        free (students);
+        free (new_records);
+        free (new_students);
+        return false;
+    }
+    /* write new data to students */
+    if(!write_data_to_students(new_students, size_of_students - 1))
+    {
+        free (records);
+        free (students);
+        free (new_records);
+        free (new_students);
+        return false;
+    }
+
+    free (records);
+    free (students);
+    free(new_records);
+    free(new_students);
+    return true;
+}
+
 /* ****************** Global Sub-program End ******************* */
 
 /* ***************** History Log Section Start ***************** */
@@ -134,5 +246,7 @@ void view_all_records (void)
  *  Muhammad Wael          10/5/2024 00:44           Adding File Layout
  *  Muhammad Wael          10/5/2024 22:41           Adding view student record function
  *  Muhammad Wael          11/5/2024 00:11           Adding edit password and edit grade functions
+ *  Muhammad wael          11/5/2024 23:11           Adding view all records function
+ *  Muhammad Wael          12/5/2024 00:16           Adding remove record function
  * */
 /* ****************** History Log Section End ****************** */
