@@ -28,7 +28,8 @@
 
 /* ************** Global Declaration Section Start ************* */
 
-bool read_string (uint8 *name);
+bool read_string_name (uint8 *name);
+bool read_string_password (uint8 *password);
 
 /* *************** Global Declaration Section End ************** */
 
@@ -38,5 +39,6 @@ bool read_string (uint8 *name);
 /*  User                   Date                     Brief
  *  Muhammad Wael          3/5/2024 23:18           Adding File Layout
  *  Muhammad wael          8/5/2024 20:00           Adding read_string function
+ *  Mina Nabil             11/5/2024 13:46          adding a read_string_password function
  */
 /* ****************** History Log Section End ****************** */
