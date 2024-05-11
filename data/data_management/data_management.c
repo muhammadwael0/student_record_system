@@ -21,16 +21,17 @@ bool edit_admin_password (Admin *admin, uint8 *new_password)
     /* to edit password of admin */
 
     /* if pass > allow size return error so iter to keep track pass digits */
-    uint8 iter = 0;
+    //uint8 iter = 0;
     if (strlen(new_password) >= PASSWORD_SIZE)
         return false;
-    while (*new_password != '\0')
+    sscanf(new_password, "%s", admin->password);
+    /*while (*new_password != '\0')
     {
         admin->password[iter] = *new_password;
         new_password++;
         iter++;
     }
-    admin->password[iter] = '\0';
+    admin->password[iter] = '\0';*/
     return true;
 }
 
@@ -39,16 +40,17 @@ bool edit_student_password (Student *student, uint8 *new_password)
     /* to edit password of student */
 
     /* if pass > allow size return error so iter to keep track pass digits */
-    uint8 iter = 0;
+    //uint8 iter = 0;
     if (strlen(new_password) >= PASSWORD_SIZE)
         return false;
-    while (*new_password != '\0')
+    sscanf(new_password, "%s", student->password);
+    /*while (*new_password != '\0')
     {
         student->password[iter] = *new_password;
         new_password++;
         iter++;
     }
-    student->password[iter] = '\0';
+    student->password[iter] = '\0';*/
     return true;
 }
 
@@ -57,16 +59,17 @@ bool edit_student_name (Record *record, uint8 *new_name)
     /* to edit name of student in record */
 
     /* if name > allow size return error so iter to keep track pass digits */
-    uint8 iter = 0;
+    //uint8 iter = 0;
     if (strlen(new_name) >= NAME_SIZE)
         return false;
-    while (*new_name != '\0')
+    sscanf(new_name, "%[^\0]s", record->password);
+    /*while (*new_name != '\0')
     {
         record->name[iter] = *new_name;
         new_name++;
         iter++;
     }
-    record->name[iter] = '\0';
+    record->name[iter] = '\0';*/
     return true;
 }
 
@@ -79,5 +82,6 @@ bool edit_student_name (Record *record, uint8 *new_name)
  *  Muhammad Wael          8/5/2024 22:19           Adding function to edit admin password
  *  Muhammad Wael          8/5/2024 22:31           Adding function to edit student password
  *  Muhammad Wael          8/5/2024 22:35           Adding function to edit student name
+ *  Mina Nabil             11/5/2024 16:55          made some adjustments to the functions to make it simpler (to be viewed)
  * */
 /* ****************** History Log Section End ****************** */
