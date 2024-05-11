@@ -17,7 +17,7 @@
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
-
+#define DEFAULT_PASSWORD "1234"
 /* ********************* Macro Section End ********************* */
 
 /* ******************* Typedef Section Start ******************* */
@@ -49,5 +49,6 @@ bool add_student_record (void);
  *  Muhammad wael          11/5/2024 23:11           Adding view all records function
  *  Muhammad Wael          12/5/2024 00:16           Adding remove record function
  *  Muhammad Wael          12/5/2024 00:49           Adding add record function
+ *  Muhammad Wael          12/5/2024 01:54           Add DEFAULT_PASSWORD macro
  */
 /* ****************** History Log Section End ****************** */

@@ -9,9 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d8dfa8-38e2-427d-a76e-9b052b788566" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../app/authentication/authentication.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/authentication/authentication.c" afterDir="false" />
-    </list>
+    <list default="true" id="d2d8dfa8-38e2-427d-a76e-9b052b788566" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +72,7 @@
       <workItem from="1715345246898" duration="2401000" />
       <workItem from="1715363053069" duration="3856000" />
       <workItem from="1715368629750" duration="598000" />
+      <workItem from="1715466482232" duration="857000" />
     </task>
     <servers />
   </component>

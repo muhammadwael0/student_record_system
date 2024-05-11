@@ -30,11 +30,13 @@ void view_student_record (uint32 ID)
             printf("Gender: %s\n", records[iter].gender);
             printf("Total Grade: %u\n", records[iter].total_grade);
             free(records);
+            records = NULL;
             return;
         }
     }
     printf("Wrong ID\n");
     free(records);
+    records = NULL;
 }
 
 bool edit_grade (uint32 ID)
@@ -59,13 +61,16 @@ bool edit_grade (uint32 ID)
             /* write data to records.csv for permanent change */
             if (!write_data_to_records(records, size)) {
                 free(records);
+                records = NULL;
                 return false;
             }
             free(records);
+            records = NULL;
             return true;
         }
     }
     free(records);
+    records = NULL;
     return false;
 }
 
@@ -87,6 +92,7 @@ bool edit_password_of_admin (uint32 ID)
             if (!read_string_password(pass))
             {
                 free(admins);
+                admins = NULL;
                 return false;
             }
              /* assign password to admins */
@@ -95,13 +101,16 @@ bool edit_password_of_admin (uint32 ID)
             /* write data to admins.csv for permanent change */
             if (!write_data_to_admins(admins, size)) {
                 free (admins);
+                admins = NULL;
                 return false;
             }
             free (admins);
+            admins = NULL;
             return true;
         }
     }
     free (admins);
+    admins = NULL;
     return false;
 }
 
@@ -125,6 +134,7 @@ void view_all_records (void)
         printf("  Total Grade: %u\n", records[iter].total_grade);
     }
     free (records);
+    records = NULL;
 }
 
 bool remove_student_record (uint32 ID)
@@ -143,6 +153,7 @@ bool remove_student_record (uint32 ID)
     if (!read_data_from_students(students, &size_of_students)) /* if there is error return false */
     {
         free (records);
+        records = NULL;
         return false;
     }
 
@@ -153,6 +164,8 @@ bool remove_student_record (uint32 ID)
     if (new_records == NULL) {
         free(records);
         free(students);
+        records = NULL;
+        students = NULL;
         return false;
     }
     /* new students that hold the new data */
@@ -163,6 +176,9 @@ bool remove_student_record (uint32 ID)
         free (records);
         free (students);
         free (new_records);
+        records = NULL;
+        students = NULL;
+        new_records = NULL;
         return false;
     }
 
@@ -180,6 +196,10 @@ bool remove_student_record (uint32 ID)
         free (students);
         free(new_records);
         free(new_students);
+        records = NULL;
+        students = NULL;
+        new_records = NULL;
+        new_students = NULL;
         return false;
     }
     /* assign new data to new array */
@@ -204,6 +224,10 @@ bool remove_student_record (uint32 ID)
         free (students);
         free (new_records);
         free (new_students);
+        records = NULL;
+        students = NULL;
+        new_records = NULL;
+        new_students = NULL;
         return false;
     }
     /* assign new data to new array */
@@ -220,6 +244,10 @@ bool remove_student_record (uint32 ID)
         free (students);
         free (new_records);
         free (new_students);
+        records = NULL;
+        students = NULL;
+        new_records = NULL;
+        new_students = NULL;
         return false;
     }
     /* write new data to students */
@@ -229,6 +257,10 @@ bool remove_student_record (uint32 ID)
         free (students);
         free (new_records);
         free (new_students);
+        records = NULL;
+        students = NULL;
+        new_records = NULL;
+        new_students = NULL;
         return false;
     }
 
@@ -236,6 +268,10 @@ bool remove_student_record (uint32 ID)
     free (students);
     free(new_records);
     free(new_students);
+    records = NULL;
+    students = NULL;
+    new_records = NULL;
+    new_students = NULL;
     return true;
 }
 
@@ -254,6 +290,7 @@ bool add_student_record (void)
     if (!read_data_from_students(students, &size_of_students)) /* if there is error return false */
     {
         free (records);
+        records = NULL;
         return false;
     }
     uint16 iter; /* to iterate through array of records and students */
@@ -264,6 +301,8 @@ bool add_student_record (void)
     {
         free(records);
         free(students);
+        records = NULL;
+        students = NULL;
         return false;
     }
 
@@ -274,17 +313,21 @@ bool add_student_record (void)
     {
         free (records);
         free (students);
+        records = NULL;
+        students = NULL;
         return false;
     }
 
     students[size_of_students].ID = students[size_of_students - 1].ID + 1;
-    strcpy(students[size_of_students].password, "1234");
+    strcpy(students[size_of_students].password, DEFAULT_PASSWORD);
 
     records[size_of_records].ID = students[size_of_students - 1].ID + 1;
     if (!read_string_name(records[size_of_records].name)) /* take a string name from user */
     {
         free (records);
         free (students);
+        records = NULL;
+        students = NULL;
         return false;
     }
     /* take necessary data from user */
@@ -299,6 +342,8 @@ bool add_student_record (void)
     {
         free (records);
         free (students);
+        records = NULL;
+        students = NULL;
         return false;
     }
     /* write new data to students */
@@ -306,11 +351,15 @@ bool add_student_record (void)
     {
         free (records);
         free (students);
+        records = NULL;
+        students = NULL;
         return false;
     }
 
     free (records);
     free (students);
+    records = NULL;
+    students = NULL;
     return true;
 }
 
@@ -324,5 +373,6 @@ bool add_student_record (void)
  *  Muhammad wael          11/5/2024 23:11           Adding view all records function
  *  Muhammad Wael          12/5/2024 00:16           Adding remove record function
  *  Muhammad Wael          12/5/2024 00:49           Adding add record function
+ *  Muhammad Wael          12/5/2024 01:52           modify all functions to handle free function
  */
 /* ****************** History Log Section End ****************** */
