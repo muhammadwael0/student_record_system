@@ -13,7 +13,7 @@
 int main()
 {
     uint16 mode, admin_id, operation, student_id, try_again;
-    uint8 *admin_password, *student_password;
+    uint8 admin_password[PASSWORD_SIZE], student_password[PASSWORD_SIZE];
     int iter;
     for (iter = 0; iter < 20; iter++)
         printf("*");
@@ -22,7 +22,7 @@ int main()
         printf("*");
 
     printf("\n\n\nAvailable modes :- \n");
-    printf("1- Admain.\n");
+    printf("1- Admin.\n");
     printf("2- Student.\n");
     printf("choose mode : ");
     scanf("%d", &mode);
@@ -135,7 +135,7 @@ int main()
             printf("2. Edit your password.\n");
             printf("3. Edit your name.\n");
             printf("Enter operation number: ");
-            scanf("%d", &operation);
+            scanf("%hd", &operation);
             switch (operation)
             {
             case 1:
@@ -152,7 +152,7 @@ int main()
                 break;
             }
             printf("\nDo you want another operation (yes 1/no 0): ");
-            scanf("%d", &try_again);
+            scanf("%hd", &try_again);
             if (!try_again)
             {
                 printf("\n\nEnd of authorization.");
@@ -161,7 +161,7 @@ int main()
         }
     }
     else
-        printf("No Matcing Mode.");
+        printf("No Matching Mode.");
 }
 /* ****************** Global Sub-program End ******************* */
 
