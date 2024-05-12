@@ -25,7 +25,6 @@ by using a set of intermediate functions that organize both layers and it access
 the row data using a set of functions that all the functions of the <strong>APP layer</strong> <br>
 depend on to manipulate the data</p>
 </blockquote>
->>>>>>> main_mnC
 </ol>
 
 ## Project Folders & Files
