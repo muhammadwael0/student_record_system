@@ -13,7 +13,10 @@
 #include "../app/admin/admin.h"
 #include "../app/authentication/authentication.h"
 #include "../app/student/student.h"
-
+#include "../data/data_management/data_management.h"
+#include "../data/file_access/file_access.h"
+#include "../data/memory_management/memory_management.h"
+#include <stdio.h>
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
