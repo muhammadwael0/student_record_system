@@ -13,7 +13,7 @@ the user can do the next operations:<br>
  <li>Remove student record.</li>
  <li>View student record.</li>
  <li>View all records.</li>
- <li>Edit admin password.</li
+ <li>Edit admin password.</li>
  <li>Edit student grade.</li>
 </ul>
 </p>
