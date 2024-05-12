@@ -29,11 +29,11 @@
 
 void edit_record (Record *record, uint8 new_grade);
 
-bool edit_admin_password (Admin *admin, uint8 *new_password);
+bool edit_admin_password (Admin *admin, char *new_password);
 
-bool edit_student_password (Student *student, uint8 *new_password);
+bool edit_student_password (Student *student, char *new_password);
 
-bool edit_student_name (Record *record, uint8 *new_name);
+bool edit_student_name (Record *record, char *new_name);
 
 /* *************** Global Declaration Section End ************** */
 

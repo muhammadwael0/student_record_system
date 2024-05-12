@@ -28,8 +28,8 @@
 
 /* ************** Global Declaration Section Start ************* */
 
-bool read_string_name (uint8 *name);
-bool read_string_password (uint8 *password);
+bool read_string_name (char *name);
+bool read_string_password (char *password);
 
 /* *************** Global Declaration Section End ************** */
 

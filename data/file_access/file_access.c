@@ -93,34 +93,6 @@ int16 get_num_lines (FILE *file)
     return --count;
 }
 
-//bool read_data_from_admins (Admin *admin)
-//{
-//    /* read_data_from_admins Function used to read from admins.csv
-//     * it takes array of admin*/
-//    FILE *admin_file = fopen(ADMINS, "r");
-//    if (admin_file == NULL)
-//    {
-//        printf("Error! Can't open file %s\n", ADMINS);
-//        return false;
-//    }
-//    uint8 admin_line_num = 0;/* for counting line number as moving in the loop */
-//    char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the admins.csv file (one line for every iteration) */
-//    admin_file = fopen(ADMINS, "r");/* open admins.csv in read mode */
-//    fgets(line_buffer, 80, admin_file);/* for removing the label line of admins.csv before accessing the struct */
-//    while(fgets(line_buffer, 80, admin_file) != NULL) /* the loop for assigning the read data line by line to the admin struct */
-//    {
-//        /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
-//        sscanf(strtok(line_buffer, ","), "%d", &admin[admin_line_num].ID);
-//        sscanf(strtok(NULL, ","), "%s", admin[admin_line_num].name);
-//        sscanf(strtok(NULL, ""), "%s", admin[admin_line_num].password);
-//        admin_line_num++;
-//    }
-//    free(line_buffer);
-//    line_buffer = NULL;
-//    fclose(admin_file);
-//    return true;
-//}
-
 bool read_data_from_admins (Admin **admin, int16 *size)
 {
     /* read_data_from_admins Function used to read from admins.csv
@@ -182,63 +154,6 @@ bool read_data_from_admins (Admin **admin, int16 *size)
     file = NULL;
     return true;
 }
-
-//bool read_data_from_records (Record *record)
-//{
-//    /* read_data_from_records Function used to read from records.csv
-//     * it takes array of record*/
-//    FILE *record_file;
-//    uint8 record_line_num = 0;/* for counting line number as moving in the loop */
-//    char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the records.csv file (one line for every iteration) */
-//    record_file = fopen(RECORDS, "r");/* open records.csv in read mode */
-//    if (record_file == NULL)
-//    {
-//        printf("Error! Can't open file %s\n", RECORDS);
-//        return false;
-//    }
-//    fgets(line_buffer, 80, record_file);/* for removing the label line of records.csv before accessing the struct */
-//    while(fgets(line_buffer, 80, record_file) != NULL) /* the loop for assigning the read data line by line to the record struct */
-//    {
-//        /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
-//        sscanf(strtok(line_buffer, ","), "%ld", &record[record_line_num].ID);
-//        sscanf(strtok(NULL, ","), "%[^,]s", record[record_line_num].name);
-//        sscanf(strtok(NULL, ","), "%d", &record[record_line_num].age);
-//        sscanf(strtok(NULL, ","), "%s", record[record_line_num].gender);
-//        sscanf(strtok(NULL, ""), "%d", &record[record_line_num].total_grade);
-//        record_line_num++;
-//    }
-//    free(line_buffer);
-//    line_buffer = NULL;
-//    fclose(record_file);
-//    return true;
-//}
-
-//bool read_data_from_students (Student *student)
-//{
-//    /* read_data_from_students Function used to read from students.csv
-//     * it takes array of student*/
-//    FILE *student_file;
-//    uint8 student_line_num = 0;/* for counting line number as moving in the loop */
-//    char *line_buffer = (char*)calloc(80, sizeof(char));/* buffer for temporary storing every line in the students.csv file (one line for every iteration) */
-//    student_file = fopen(STUDENTS, "r");/* open students.csv in read mode */
-//    if (student_file == NULL)
-//    {
-//        printf("Error! Can't open file %s\n", STUDENTS);
-//        return false;
-//    }
-//    fgets(line_buffer, 80, student_file);/* for removing the label line of students.csv before accessing the struct */
-//    while(fgets(line_buffer, 80, student_file) != NULL) /* the loop for assigning the read data line by line to the student struct */
-//    {
-//        /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
-//        sscanf(strtok(line_buffer, ","), "%ld", &student[student_line_num].ID);
-//        sscanf(strtok(NULL, ""), "%s", student[student_line_num].password);
-//        student_line_num++;
-//    }
-//    free(line_buffer);
-//    line_buffer = NULL;
-//    fclose(student_file);
-//    return true;
-//}
 
 bool read_data_from_records (Record **record, int16 *size)
 {
@@ -376,5 +291,5 @@ bool read_data_from_students (Student **student, int16 *size)
  *  Muhammad Wael          10/5/2024 21:46          modifying read functions and add dynamic allocation
  *  Mina Nabil             11/5/2024 12:49          fixing get_num_lines function to return to first line after finishing
  *  Muhammad Wael          12/5/2024 01:39          big fix to all function handle fclose and free functions
- * */
+ */
 /* ****************** History Log Section End ****************** */
