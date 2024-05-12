@@ -12,7 +12,8 @@
 
 int main()
 {
-    uint16 mode, admin_id, operation, student_id, try_again;
+    uint16 mode, operation, try_again;
+    uint32 admin_id, student_id;
     uint8 admin_password[PASSWORD_SIZE], student_password[PASSWORD_SIZE];
     int iter;
     for (iter = 0; iter < 81; iter++)
@@ -34,7 +35,7 @@ int main()
             for (iter = 0; iter < TRIES; iter++)
             {
                 printf("Enter ID: ");
-                scanf("%hd", &admin_id);
+                scanf("%lu", &admin_id);
                 printf("Enter Password: ");
                 scanf("%s", admin_password);
                 if (authenticate_admin(admin_id, admin_password))
@@ -74,7 +75,7 @@ int main()
                 for (iter = 0; iter < TRIES; iter++)
                 {
                     printf("Enter student ID: ");
-                    scanf("%d", &student_id);
+                    scanf("%ld", &student_id);
                     if (view_student_record(student_id))
                         break;
                     else if (iter == 2)

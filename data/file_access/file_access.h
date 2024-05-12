@@ -37,8 +37,8 @@ bool write_data_to_records (Record *records, uint16 size);
 int16 get_num_lines (FILE *file);
 
 bool read_data_from_admins (Admin **admin, int16 *size);
-bool read_data_from_records (Record *record, uint16 *size);
-bool read_data_from_students (Student *student, uint16 *size);
+bool read_data_from_records (Record **record, int16 *size);
+bool read_data_from_students (Student **student, int16 *size);
 
 /* *************** Global Declaration Section End ************** */
 

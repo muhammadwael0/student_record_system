@@ -14,9 +14,12 @@ bool view_student_record (uint32 ID)
 {
     /* view_student_record function takes ID if ID found return record */
     Record *records = NULL;
-    uint16 size = 0; /* number of records */
+    int16 size = 0; /* number of records */
 
-    if (!read_data_from_records(records, &size)) /* if there is error exit */
+    if (!read_data_from_records(&records, &size)) /* if there is error exit */
+        return false;
+
+    if (size == -1)
         return false;
 
     uint16 iter = 0; /* to iterate through array of records */
@@ -44,9 +47,12 @@ bool edit_grade (uint32 ID)
 {
     /* edit_grade function takes ID if ID found edit grade record */
     Record *records = NULL;
-    uint16 size = 0; /* number of records */
+    int16 size = 0; /* number of records */
 
-    if (!read_data_from_records(records, &size)) /* if there is error exit */
+    if (!read_data_from_records(&records, &size)) /* if there is error exit */
+        return false;
+
+    if (size == -1)
         return false;
 
     uint16 iter = 0; /* to iterate through array of records */
@@ -54,9 +60,9 @@ bool edit_grade (uint32 ID)
     for (iter = 0; iter < size; ++iter) {
         if (ID == records[iter].ID)
         {
-            uint8 new_grade;
+            uint16 new_grade;
             printf("Enter New Grade: ");
-            scanf("%d", &new_grade);
+            scanf("%hd", &new_grade);
             edit_record(&records[iter], new_grade); /* assign new grade to records */
 
             /* write data to records.csv for permanent change */
@@ -79,9 +85,12 @@ bool edit_password_of_admin (uint32 ID)
 {
     /* edit_admin_password function takes ID and modify admin pass */
     Admin *admins = NULL;
-    uint16 size = 0; /* number of records */
+    int16 size = 0; /* number of records */
 
     if (!read_data_from_admins(&admins, &size)) /* if there is error exit */
+        return false;
+
+    if (size == -1)
         return false;
 
     uint16 iter = 0; /* to iterate through array of admins */
@@ -119,9 +128,12 @@ void view_all_records (void)
 {
     /* view_all_records function takes nothing and view all records of students */
     Record *records = NULL;
-    uint16 size = 0; /* number of records */
+    int16 size = 0; /* number of records */
 
-    if (!read_data_from_records(records, &size)) /* if there is error exit */
+    if (!read_data_from_records(&records, &size)) /* if there is error exit */
+        return;
+
+    if (size == -1)
         return;
 
     uint16 iter = 0; /* to iterate through array of records */

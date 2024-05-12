@@ -1,4 +1,4 @@
-ID,Name,Age,Gender,Total Grade (fullmark 100)
+ID,Name,Age,Gender,Total Grade
 2345543,Ahmad tarek sarhan,18,Male,75
 2345544,Amr khaled nasser,18,Male,78
 2345545,Amr morsi tawfiq,19,Male,66
@@ -6,7 +6,7 @@ ID,Name,Age,Gender,Total Grade (fullmark 100)
 2345547,Farah hamed qadri,18,Female,72
 2345548,Kareem salem Eladawy,18,Male,90
 2345549,Karim ashraf rizk,18,Male,85
-2345550,kyrollos ishaq ibrahim,19,Male,88
+2345550,kyrollos ishaq ibrahim,19,Male,90
 2345551,Mark makram samoul,18,Male,57
 2345552,Menna walid muhamad,18,Female,69
 2345553,Muhamad zakaria ali,19,Male,71
