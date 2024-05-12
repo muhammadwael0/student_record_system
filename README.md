@@ -78,7 +78,7 @@ depend on to manipulate the data</p>
 
 <ul>
  <strong><li>main<br></li></strong>
- <h5> /*uses <strong>app layer</strong> functions*/</h5>
+ <h5> //* uses <strong>app layer</strong> functions *//</h5>
  <strong><li>admin</li></strong>
   <ul>
    <li>view_student_record</li>
