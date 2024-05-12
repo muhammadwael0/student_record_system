@@ -30,7 +30,7 @@ depend on to manipulate the data</p>
 ## Project Folders & Files
 
 <ul>
- <h4><li style="font-size:300%;">ui</li></h4>
+ <h4><li>ui</li></h4>
   <ul>
    <li><em>main.c</em></li>
    <li><em>main.h</em></li>
@@ -71,5 +71,54 @@ depend on to manipulate the data</p>
      <li><em>memory_management.h</em></li>
     </ul>
    <li><em>std_lib.h</em></li>
+  </ul>
+</ul>
+
+## Project Functions
+
+<ul>
+ <strong><li>main<br></li></strong> <h5> //uses <strong>app layer</strong> functions</h5>
+ <strong><li>admin</li></strong>
+  <ul>
+   <li>view_student_record</li>
+   <li>edit_grade</li>
+   <li>edit_password_of_admin</li>
+   <li>view_all_records</li>
+   <li>remove_student_record</li>
+   <li>add_student_record</li>
+  </ul>
+ <strong><li>authentication</li></strong>
+  <ul>
+   <li>authenticate_admin</li>
+   <li>authenticate_student_id</li>
+   <li>authenticate_student_password</li>
+  </ul>
+ <strong><li>student</li></strong>
+  <ul>
+   <li>edit_name_of_student</li>
+   <li>edit_password_of_student</li>
+   <li>view_student_record_from_student</li>
+  </ul>
+ <strong><li>data_management</li></strong>
+  <ul>
+   <li>edit_record</li>
+   <li>edit_admin_password</li>
+   <li>edit_student_password</li>
+   <li>edit_student_name</li>
+  </ul>
+ <strong><li>file_access</li></strong>
+  <ul>
+   <li>write_data_to_admins</li>
+   <li>write_data_to_students</li>
+   <li>write_data_to_records</li>
+   <li>get_num_lines</li>
+   <li>read_data_from_admins</li>
+   <li>read_data_from_records</li>
+   <li>read_data_from_students</li>
+  </ul>
+ <strong><li>memory_management</li></strong>
+  <ul>
+   <li>read_string_name</li>
+   <li>>read_string_password</li>
   </ul>
 </ul>
