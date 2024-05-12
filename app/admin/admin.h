@@ -30,7 +30,7 @@
 
 /* ************** Global Declaration Section Start ************* */
 
-void view_student_record (uint32 ID);
+bool view_student_record (uint32 ID);
 bool edit_grade (uint32 ID);
 bool edit_password_of_admin (uint32 ID);
 void view_all_records (void);
