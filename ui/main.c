@@ -91,7 +91,7 @@ int main()
                 {
                     printf("Enter student ID: ");
                     scanf("%d", &student_id);
-                    if (edit_grade(uint32 ID))
+                    if (edit_grade(student_id))
                         break;
                     else if (i == 2)
                         printf("No More Tries!");
