@@ -10,9 +10,6 @@
 /* ******************* Include Section Start ******************* */
 
 #include "../data/std_lib.h"
-#include "../data/file_access/file_access.h"
-#include "../data/memory_management/memory_management.h"
-#include "../data/data_management/data_management.h"
 #include "../app/admin/admin.h"
 #include "../app/authentication/authentication.h"
 #include "../app/student/student.h"
@@ -45,5 +42,6 @@
 /*  User                   Date                     Brief
  *  Mina Nabil             11/5/2024 23:35          Adding File Layout
  *  Mina Nabil             12/5/2024 03:59          Adding essential macros
+ *  Mina Nabil             12/5/2024 04:29          removing some unnecessary header files
  */
 /* ****************** History Log Section End ****************** */
