@@ -72,19 +72,23 @@ int16 get_num_lines (FILE *file)
 {
     /* get_num_lines Function used to get number of lines
      * it takes FILE and return number of lines in that file */
+
     if (file == NULL)
     {
         printf("Error while opening File\n");
         return -1;
     }
+
     int16 count = 0; /* count number of lines in .csv */
-    uint8 ch;
-    while (((ch = fgetc(file)) != EOF)) /* read char by char til the EOF */
+    int ch = getc(file);
+    while (ch != EOF) /* read char by char til the EOF */
     {
         if (ch == '\n')
             count++;
+        ch = getc(file);
     }
-    rewind(file);/*to return to first line of the file ofter finishing*/
+
+    rewind(file); /*to return to first line of the file ofter finishing*/
     return --count;
 }
 
@@ -116,7 +120,7 @@ int16 get_num_lines (FILE *file)
 //    return true;
 //}
 
-bool read_data_from_admins (Admin *admin, uint16 *size)
+bool read_data_from_admins (Admin *admin, int16 *size)
 {
     /* read_data_from_admins Function used to read from admins.csv
      * it takes pointer to admin to allocate data to it and pointer to size */
@@ -129,6 +133,9 @@ bool read_data_from_admins (Admin *admin, uint16 *size)
 
     /* get number of lines in file */
     *size = get_num_lines(file);
+
+    if (*size == -1)
+        return false;
 
     /* dynamic allocate array of admins */
     admin = malloc(*size * sizeof (Admin));
@@ -144,7 +151,7 @@ bool read_data_from_admins (Admin *admin, uint16 *size)
     uint16 iter = 0; /* iterate through lines */
 
     /* buffer for temporary storing every line in the admins.csv file (one line for every iteration) */
-    uint8 *line_buffer = (uint8*)calloc(80, sizeof(uint8));
+    char *line_buffer = (char*)calloc(80, sizeof(char));
 
     if (line_buffer == NULL)
     {
@@ -165,6 +172,7 @@ bool read_data_from_admins (Admin *admin, uint16 *size)
         sscanf(strtok(NULL, ""), "%s", admin[iter].password);
         iter++;
     }
+
     free(line_buffer);
     line_buffer = NULL;
     fclose(file);
