@@ -5,8 +5,8 @@
 of a school database as it implements different operations on premade students database<br>
 and premade admins database to organize multiple admins activities on students database.<br>
 The system concists of two modes the user can choose between: Admin mode and Student mode.</p>
-<h3><u>Admin Mode</u></h3>
-<p>from admin mode the user can do multible operations on the student database and admin database<br>
+<h3>Admin Mode</h3>
+<p>from admin mode the user can do multiple operations on the student database and admin database<br>
 the user can do the next operations:<br>
 <ul>
  <li>Add student record.</li>
@@ -17,8 +17,8 @@ the user can do the next operations:<br>
  <li>Edit student grade.</li>
 </ul>
 </p>
-<h3><u>Student Mode</u></h3>
-<p>from student mode the user can do multible operations too, but only on the student database <br>
+<h3>Student Mode</h3>
+<p>from student mode the user can do multiple operations too, but only on the student database <br>
 the user can do the next operations:<bt>
 <ul> 
  <li>View student record.</li>
@@ -57,8 +57,8 @@ the user can do the next operations:<bt>
     </ul>
   </p>
 </ul>
-And the modification is done throw multible functions which are Distributed on <br>
-multible modules (or folders) and the modules are Distributed on three main layers (or main folders).
+And the modification is done throw multiple functions which are Distributed on <br>
+multiple modules (or folders) and the modules are Distributed on three main layers (or main folders).
 </p>
 
 ## Project Layers
@@ -178,3 +178,8 @@ depend on to manipulate the data.</p>
    <li>read_string_password</li>
   </ul>
 </ul>
+
+## User Defined Librarys
+
+<h4>std_lib.h</h4>
+<p>This is the only user defined library that has been created for the project and it defines some <br>typedefs for the data types that are used in the project and for the structs that the data of the <br>admins and students will be stored in and it defines some macros to be used in the project <br>fuctions's</p>
