@@ -79,7 +79,7 @@ int16 get_num_lines (FILE *file)
     }
     int16 count = 0; /* count number of lines in .csv */
     uint8 ch;
-    while (((ch = fgetc(file)) != EOF)) /* read char by char til the EOF */
+    while ((ch = fgetc(file) != EOF)) /* read char by char til the EOF */
     {
         if (ch == '\n')
             count++;
