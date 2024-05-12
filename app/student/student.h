@@ -30,8 +30,11 @@
 
 /* ************** Global Declaration Section Start ************* */
 
-bool edit_name (uint32 ID);
-bool edit_password (uint32 ID);
+bool edit_name_of_student (uint32 ID);
+bool edit_password_of_student (uint32 ID);
+bool view_student_record_from_student (uint32 ID);
+//bool edit_name (uint32 ID);
+//bool edit_password (uint32 ID);
 
 /* *************** Global Declaration Section End ************** */
 
