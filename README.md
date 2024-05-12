@@ -23,7 +23,7 @@ by using a set of intermediate functions <br>that organize both layers and it ac
 <blockquote>
 <p>It's the layer that control all data related operations as it deals with the row data <br>
 using a set of functions that all the functions of the <strong>APP layer</strong> <br>
-depend on to manipulate the data</p>
+depend on to manipulate the data.</p>
 </blockquote>
 </ol>
 
