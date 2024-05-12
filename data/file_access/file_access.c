@@ -80,7 +80,6 @@ int16 get_num_lines (FILE *file)
     }
 
     int16 count = 0; /* count number of lines in .csv */
-<<<<<<<<< Temporary merge branch 1
 
     int ch = getc(file);
     while (ch != EOF) /* read char by char til the EOF */
