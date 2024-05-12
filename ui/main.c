@@ -14,10 +14,11 @@ int main()
 {
     uint16 mode, admin_id, operation, student_id, try_again;
     uint8 *admin_password, *student_password;
-    for (int i = 0; i < 20; i++)
+    int iter;
+    for (iter = 0; iter < 20; iter++)
         printf("*");
     printf("         Welcome To The Student Record System");
-    for (int i = 0; i < 20; i++)
+    for (iter = 0; iter < 20; iter++)
         printf("*");
 
     printf("\n\n\nAvailable modes :- \n");
@@ -30,7 +31,7 @@ int main()
     {
         while (true)
         {
-            for (int i = 0; i < TRIES; i++)
+            for (iter = 0; iter < TRIES; iter++)
             {
                 printf("Enter ID: ");
                 scanf("%d", &admin_id);
@@ -38,7 +39,7 @@ int main()
                 scanf("%s", admin_password);
                 if (authenticate_admin(admin_id, admin_password))
                     break;
-                else if (i == 2)
+                else if (iter == 2)
                 {
                     printf("Access denied.");
                     return 0;
@@ -59,24 +60,24 @@ int main()
                 add_student_record();
                 break;
             case 2:
-                for (int i = 0; i < TRIES; i++)
+                for (iter = 0; iter < TRIES; iter++)
                 {
                     printf("Enter student ID: ");
                     scanf("%d", &student_id);
                     if (remove_student_record(student_id))
                         break;
-                    else if (i == 2)
+                    else if (iter == 2)
                         printf("No More Tries!");
                 }
                 break;
             case 3:
-                for (int i = 0; i < TRIES; i++)
+                for (iter = 0; iter < TRIES; iter++)
                 {
                     printf("Enter student ID: ");
                     scanf("%d", &student_id);
                     if (view_student_record(student_id))
                         break;
-                    else if (i == 2)
+                    else if (iter == 2)
                         printf("No More Tries!");
                 }
                 break;
@@ -87,13 +88,13 @@ int main()
                 edit_password_of_admin(admin_id);
                 break;
             case 6:
-                for (int i = 0; i < TRIES; i++)
+                for (iter = 0; iter < TRIES; iter++)
                 {
                     printf("Enter student ID: ");
                     scanf("%d", &student_id);
                     if (edit_grade(student_id))
                         break;
-                    else if (i == 2)
+                    else if (iter == 2)
                         printf("No More Tries!");
                 }
                 break;
@@ -115,7 +116,7 @@ int main()
     {
         while (true)
         {
-            for (int i = 0; i < TRIES; i++)
+            for (iter = 0; iter < TRIES; iter++)
             {
                 printf("Enter ID: ");
                 scanf("%d", &student_id);
@@ -123,7 +124,7 @@ int main()
                 scanf("%s", student_password);
                 if (authenticate_student_password(authenticate_student_id(student_id), student_password))
                     break;
-                else if (i == 2)
+                else if (iter == 2)
                 {
                     printf("Access denied.");
                     return 0;
