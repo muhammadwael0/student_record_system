@@ -35,6 +35,7 @@ bool authenticate_admin (uint32 id, uint8 *password)
             if (!strcmp(password, admins[iter].password)) /* compare two strings */
             {
                 printf("Login Successful\n");
+                printf("Hello, Mr/Mss %s\n", admins[iter].name);
                 free(admins); /* free allocated memory */
                 admins = NULL;
                 return true;

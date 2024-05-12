@@ -159,6 +159,8 @@ bool read_data_from_admins (Admin **admin, int16 *size)
         printf("Error! Can't Allocate space\n");
         fclose(file);
         file = NULL;
+        free (*admin);
+        *admin = NULL;
         return false;
     }
 
@@ -238,7 +240,7 @@ bool read_data_from_admins (Admin **admin, int16 *size)
 //    return true;
 //}
 
-bool read_data_from_records (Record *record, uint16 *size)
+bool read_data_from_records (Record **record, int16 *size)
 {
     /* read_data_from_records Function used to read from records.csv
      * it takes pointer to record to point data to it and pointer to point to size */
@@ -252,10 +254,12 @@ bool read_data_from_records (Record *record, uint16 *size)
     /* get number of lines in file */
     *size = get_num_lines(file);
 
+    if (*size == -1)
+        return false;
     /* dynamic allocate array of records */
-    record = malloc(*size * sizeof (Record));
+    *record = malloc(*size * sizeof (Record));
 
-    if (record == NULL)
+    if (*record == NULL)
     {
         printf("Error! Can't Allocate Space for records\n");
         fclose(file);
@@ -266,13 +270,15 @@ bool read_data_from_records (Record *record, uint16 *size)
     uint16 iter = 0; /* iterate through lines */
 
     /* buffer for temporary storing every line in the records.csv file (one line for every iteration) */
-    uint8 *line_buffer = (uint8*)calloc(80, sizeof(uint8));
+    char *line_buffer = (char*)calloc(80, sizeof(char));
 
     if (line_buffer == NULL)
     {
         printf("Error! Can't Allocate Space\n");
         fclose(file);
         file = NULL;
+        free(*record);
+        *record = NULL;
         return false;
     }
 
@@ -282,11 +288,11 @@ bool read_data_from_records (Record *record, uint16 *size)
     while(fgets(line_buffer, 80, file) != NULL) /* the loop for assigning the read data line by line to the record struct */
     {
         /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
-        sscanf(strtok(line_buffer, ","), "%ld", &record[iter].ID);
-        sscanf(strtok(NULL, ","), "%[^,]s", record[iter].name);
-        sscanf(strtok(NULL, ","), "%u", &record[iter].age);
-        sscanf(strtok(NULL, ","), "%s", record[iter].gender);
-        sscanf(strtok(NULL, ""), "%u", &record[iter].total_grade);
+        sscanf(strtok(line_buffer, ","), "%ld", &(*record)[iter].ID);
+        sscanf(strtok(NULL, ","), "%[^,]s", (*record)[iter].name);
+        sscanf(strtok(NULL, ","), "%u", &(*record)[iter].age);
+        sscanf(strtok(NULL, ","), "%s", (*record)[iter].gender);
+        sscanf(strtok(NULL, ""), "%u", &(*record)[iter].total_grade);
         iter++;
     }
     free(line_buffer);
@@ -296,7 +302,7 @@ bool read_data_from_records (Record *record, uint16 *size)
     return true;
 }
 
-bool read_data_from_students (Student *student, uint16 *size)
+bool read_data_from_students (Student **student, int16 *size)
 {
     /* read_data_from_students Function used to read from students.csv
      * it takes pointer to student to point data to it and pointer to point to size */
@@ -310,10 +316,12 @@ bool read_data_from_students (Student *student, uint16 *size)
     /* get number of lines in file */
     *size = get_num_lines(file);
 
+    if (*size == -1)
+        return false;
     /* dynamic allocate array of students */
-    student = malloc(*size * sizeof (Student));
+    *student = malloc(*size * sizeof (Student));
 
-    if (student == NULL)
+    if (*student == NULL)
     {
         printf("Error! Can't Allocate space for student\n");
         fclose(file);
@@ -324,13 +332,15 @@ bool read_data_from_students (Student *student, uint16 *size)
     uint16 iter = 0; /* iterate through lines */
 
     /* buffer for temporary storing every line in the students.csv file (one line for every iteration) */
-    uint8 *line_buffer = (uint8*)calloc(80, sizeof(uint8));
+    char *line_buffer = (char*)calloc(80, sizeof(char));
 
     if (line_buffer == NULL)
     {
         printf("Error! Can't Allocate space\n");
         fclose(file);
         file = NULL;
+        free (*student);
+        *student = NULL;
         return false;
     }
 
@@ -339,8 +349,8 @@ bool read_data_from_students (Student *student, uint16 *size)
     while(fgets(line_buffer, 80, file) != NULL) /* the loop for assigning the read data line by line to the student struct */
     {
         /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
-        sscanf(strtok(line_buffer, ","), "%ld", &student[iter].ID);
-        sscanf(strtok(NULL, ""), "%s", student[iter].password);
+        sscanf(strtok(line_buffer, ","), "%ld", &(*student)[iter].ID);
+        sscanf(strtok(NULL, ""), "%s", (*student)[iter].password);
         iter++;
     }
     free(line_buffer);
