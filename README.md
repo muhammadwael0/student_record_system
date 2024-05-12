@@ -182,4 +182,4 @@ depend on to manipulate the data.</p>
 ## User Defined Librarys
 
 <h4>std_lib.h</h4>
-<p> This is the only user defined library that has been created for the project and it defines some <br> typedefs for the data types that are used in the project and for the structs that the data of the <br> admins and students will be stored in and it defines some macros to be used in the project <br> fuctions's.</p>
+<p>&nbsp;This is the only user defined library that has been created for the project and it defines some <br>&nbsp;typedefs for the data types that are used in the project and for the structs that the data of the <br>&nbsp;admins and students will be stored in and it defines some macros to be used in the project <br>&nbsp;fuctions's.</p>
