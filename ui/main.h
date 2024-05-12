@@ -9,10 +9,10 @@
 
 /* ******************* Include Section Start ******************* */
 
-#include "..\data\std_lib.h"
-#include "..\app\admin\admin.h"
-#include "..\app\authentication\authentication.h"
-#include "..\app\student\student.h"
+#include "../data/std_lib.h"
+#include "../app/admin/admin.h"
+#include "../app/authentication/authentication.h"
+#include "../app/student/student.h"
 
 /* ******************** Include Section End ******************** */
 
