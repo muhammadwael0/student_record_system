@@ -15,10 +15,10 @@ int main()
     uint16 mode, admin_id, operation, student_id, try_again;
     uint8 admin_password[PASSWORD_SIZE], student_password[PASSWORD_SIZE];
     int iter;
-    for (iter = 0; iter < 20; iter++)
+    for (iter = 0; iter < 81; iter++)
         printf("*");
-    printf("         Welcome To The Student Record System");
-    for (iter = 0; iter < 20; iter++)
+    printf("\n                Welcome To The Student Record System\n");
+    for (iter = 0; iter < 81; iter++)
         printf("*");
 
     printf("\n\n\nAvailable modes :- \n");
@@ -168,6 +168,7 @@ int main()
 /* ***************** History Log Section Start ***************** */
 /*  User                   Date                     Brief
  *  Mina Nabil             11/5/2024 23:28          Adding File Layout
- *  Mina Nabil             12/5/2024 03:57           Adding all main functions
+ *  Mina Nabil             12/5/2024 03:57          Adding all main functions
+ *  Mina Nabil             12/5/2024 14:07          change some style
  * */
 /* ****************** History Log Section End ****************** */
