@@ -9,43 +9,67 @@ and premade admins database to organize multiple admins activities on students d
 ## Project Layers
 
 <ol>
-<li><h3>UI LAYER</h3></li>
-> <p>It's the display layer for the project that the user react with and <br>
-> it uses the functions inside the **APP layer**.</p>
-<li><h3>APPLICATION LAYER</h3></li>
-> <p>It's the layer that connect the **UI layer** with the **Data access layer** <br>
-> by using a set of intermediate functions that organize both layers and it accesses the **Data access layer** only.</p>
-<li><h3>DATA ACCESS LAYER</h3></li>
-> <p>It's the layer that control all data related operations as it deals with <br>
-> the row data using a set of functions that all the functions of the APP layer <br>
-> depend on to manipulate the data</p>
+<h3><li>UI LAYER</li></h3>
+<blockquote>
+<p>It's the display layer for the project that the user react with and <br>
+it uses the functions inside the <strong>APP layer</strong>.</p>
+</blockquote>
+<h3><li>APPLICATION LAYER</li></h3>
+<blockquote>
+<p>It's the layer that connect the <strong>UI layer</strong> with the <strong>Data access layer</strong> <br>
+by using a set of intermediate functions that organize both layers and it accesses the <strong>Data access layer</strong> only.</p>
+</blockquote>
+<h3><li>DATA ACCESS LAYER</li></h3>
+<blockquote>
+<p>It's the layer that control all data related operations as it deals with <br>
+the row data using a set of functions that all the functions of the <strong>APP layer</strong> <br>
+depend on to manipulate the data</p>
+</blockquote>
 </ol>
 
 ## Project Folders & Files
 
 <ul>
- <li>ui</li>
+ <h4><li>ui</li></h4>
   <ul>
-   <li>main.c</li>
-   <li>main.h</li>
+   <li><em>main.c</em></li>
+   <li><em>main.h</em></li>
   </ul>
- <li>app</li>
+ <h4><li>app</li></h4>
   <ul>
-   <li>admin</li>
+   <li><strong>admin</strong></li>
     <ul>
-     <li>admin.c</li>
-     <li>admin.h</li>
+     <li><em>admin.c</em></li>
+     <li><em>admin.h</em></li>
     </ul>
-   <li>authentication</li>
+   <li><strong>authentication</strong></li>
     <ul>
-     <li>authentication.c</li>
-     <li>authentication.h</li>
+     <li><em>authentication.c</em></li>
+     <li><em>authentication.h</em></li>
     </ul>
-   <li>student</li>
+   <li><strong>student</strong></li>
     <ul>
-     <li>student.c</li>
-     <li>astudent.h</li>
+     <li><em>student.c</em></li>
+     <li><em>astudent.h</em></li>
     </ul>
   </ul>
- <li>data</li>
+ <h4><li>data</li></h4>
+  <ul>
+   <li><strong>data_management</strong></li>
+    <ul>
+     <li><em>data_management.c</em></li>
+     <li><em>data_management.h</em></li>
+    </ul>
+   <li><strong>file_access</strong></li>
+    <ul>
+     <li><em>file_access.c</em></li>
+     <li><em>file_access.h</em></li>
+    </ul>
+   <li><strong>memory_management</strong></li>
+    <ul>
+     <li><em>memory_management.c</em></li>
+     <li><em>memory_management.h</em></li>
+    </ul>
+   <li><em>std_lib.h</em></li>
+  </ul>
 </ul>
