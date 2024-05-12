@@ -77,7 +77,8 @@ depend on to manipulate the data</p>
 ## Project Functions
 
 <ul>
- <strong><li>main<br></li></strong> <h5> //uses <strong>app layer</strong> functions</h5>
+ <strong><li>main<br></li></strong>
+ <h5> /*uses <strong>app layer</strong> functions*/</h5>
  <strong><li>admin</li></strong>
   <ul>
    <li>view_student_record</li>
@@ -119,6 +120,6 @@ depend on to manipulate the data</p>
  <strong><li>memory_management</li></strong>
   <ul>
    <li>read_string_name</li>
-   <li>>read_string_password</li>
+   <li>read_string_password</li>
   </ul>
 </ul>
