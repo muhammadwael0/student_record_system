@@ -74,14 +74,14 @@ bool edit_password_of_student (uint32 ID)
     return false;
 }
 
-void view_student_record_from_student (uint32 ID)
+bool view_student_record_from_student (uint32 ID)
 {
     /* view_student_record function takes ID if ID found return record */
     Record *records = NULL;
     uint16 size; /* number of records */
 
     if (!read_data_from_records(records, &size)) /* if there is error exit */
-        return;
+        return false;
 
     uint16 iter = 0; /* to iterate through array of records */
 
@@ -93,10 +93,11 @@ void view_student_record_from_student (uint32 ID)
             printf("Age: %u\n", records[iter].age);
             printf("Gender: %s\n", records[iter].gender);
             printf("Total Grade: %u\n", records[iter].total_grade);
-            return;
+            return true;
         }
     }
     printf("Wrong ID\n");
+    return false;
 }
 
 /* ****************** Global Sub-program End ******************* */
@@ -106,5 +107,6 @@ void view_student_record_from_student (uint32 ID)
  *  Mina Nabil             11/5/2024 20:15          Adding File Layout
  *  Mina Nabil             11/5/2024 21:48          Adding editing name and password functions
  *  Mina Nabil             11/5/2024 22:21          Adding view student record function
+ *  Mina Nabil             12/5/2024 03:31          Changed view_student_record_from_student function return type to bool
  * */
 /* ****************** History Log Section End ****************** */
