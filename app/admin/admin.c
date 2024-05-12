@@ -99,13 +99,15 @@ bool edit_password_of_admin (uint32 ID)
         if (ID == admins[iter].ID)
         {
             char pass[PASSWORD_SIZE];
-
+            printf("HI\n");
             if (!read_string_password(pass))
             {
+                printf("Bye\n");
                 free(admins);
                 admins = NULL;
                 return false;
             }
+            printf("HI\n");
              /* assign password to admins */
             edit_admin_password(&admins[iter], pass);
 
