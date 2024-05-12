@@ -121,7 +121,7 @@ int16 get_num_lines (FILE *file)
 //    return true;
 //}
 
-bool read_data_from_admins (Admin *admin, int16 *size)
+bool read_data_from_admins (Admin **admin, int16 *size)
 {
     /* read_data_from_admins Function used to read from admins.csv
      * it takes pointer to admin to allocate data to it and pointer to size */
@@ -139,9 +139,9 @@ bool read_data_from_admins (Admin *admin, int16 *size)
         return false;
 
     /* dynamic allocate array of admins */
-    admin = malloc(*size * sizeof (Admin));
+    *admin = malloc(*size * sizeof (Admin));
 
-    if (admin == NULL)
+    if (*admin == NULL)
     {
         printf("Error! Can't Allocate space for admin structure\n");
         fclose(file);
@@ -168,9 +168,9 @@ bool read_data_from_admins (Admin *admin, int16 *size)
     while(fgets(line_buffer, 80, file) != NULL) /* the loop for assigning the read data line by line to the admin struct */
     {
         /* assigning data (from the buffer string) token by token using the strtok function by using "," as a delimiter */
-        sscanf(strtok(line_buffer, ","), "%ld", &admin[iter].ID);
-        sscanf(strtok(NULL, ","), "%s", admin[iter].name);
-        sscanf(strtok(NULL, ""), "%s", admin[iter].password);
+        sscanf(strtok(line_buffer, ","), "%ld", &(*admin)[iter].ID);
+        sscanf(strtok(NULL, ","), "%s", (*admin)[iter].name);
+        sscanf(strtok(NULL, ""), "%s", (*admin)[iter].password);
         iter++;
     }
 

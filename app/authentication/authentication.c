@@ -14,11 +14,20 @@ bool authenticate_admin (uint32 id, uint8 *password)
 {
     /* authenticate_admin function used to check if id and password is true */
     Admin *admins = NULL;
-    uint16 size; /* num of admins*/
-    if (!read_data_from_admins(admins, &size))
+    int16 size; /* num of admins*/
+    if (!read_data_from_admins(&admins, &size))
+        return false;
+
+    if (size == -1)
         return false;
 
     uint16 iter; /* to iterate through array of admins */
+
+    for (iter = 0; iter < size; ++iter) {
+        printf("ID: %lu\n", admins[iter].ID);
+        printf("Name: %s\n", admins[iter].name);
+        printf("pass: %s\n", admins[iter].password);
+    }
 
     for (iter = 0; iter < size; ++iter) {
         if (id == admins[iter].ID)
