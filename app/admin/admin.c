@@ -81,7 +81,7 @@ bool edit_password_of_admin (uint32 ID)
     Admin *admins = NULL;
     uint16 size = 0; /* number of records */
 
-    if (!read_data_from_admins(admins, &size)) /* if there is error exit */
+    if (!read_data_from_admins(&admins, &size)) /* if there is error exit */
         return false;
 
     uint16 iter = 0; /* to iterate through array of admins */
