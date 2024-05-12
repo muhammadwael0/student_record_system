@@ -24,12 +24,6 @@ bool authenticate_admin (uint32 id, uint8 *password)
     uint16 iter; /* to iterate through array of admins */
 
     for (iter = 0; iter < size; ++iter) {
-        printf("ID: %lu\n", admins[iter].ID);
-        printf("Name: %s\n", admins[iter].name);
-        printf("pass: %s\n", admins[iter].password);
-    }
-
-    for (iter = 0; iter < size; ++iter) {
         if (id == admins[iter].ID)
         {
             if (!strcmp(password, admins[iter].password)) /* compare two strings */
@@ -59,8 +53,12 @@ uint16 authenticate_student_id (uint32 id)
 {
     /* authenticate_student_id function used to check if id is true */
     Student *students = NULL;
-    uint16 size; /* num of students*/
-    if (!read_data_from_students(students, &size))
+    int16 size; /* num of students*/
+
+    if (!read_data_from_students(&students, &size))
+        return false;
+
+    if (size == -1)
         return false;
 
     uint16 iter; /* to iterate through array of students */
@@ -69,6 +67,8 @@ uint16 authenticate_student_id (uint32 id)
     {
         if (id == students[iter].ID)
         {
+            free(students);
+            students = NULL;
             return iter;
         }
     }
@@ -83,8 +83,11 @@ bool authenticate_student_password (uint16 id_check, uint8 *password)
 {
     /* authenticate_student_password function used to check if password of the id is true */
     Student *students = NULL;
-    uint16 size; /* num of admins*/
-    if (!read_data_from_students(students, &size))
+    int16 size; /* num of admins*/
+    if (!read_data_from_students(&students, &size))
+        return false;
+
+    if (size == -1)
         return false;
 
     if(id_check)
