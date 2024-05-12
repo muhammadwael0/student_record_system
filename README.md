@@ -3,7 +3,62 @@
 ## Project Description
 <p>This is a student record system project that simulate the working environment <br>
 of a school database as it implements different operations on premade students database<br>
-and premade admins database to organize multiple admins activities on students database.
+and premade admins database to organize multiple admins activities on students database.<br>
+The system concists of two modes the user can choose between: Admin mode and Student mode.</p>
+<h3>Admin Mode</h3>
+<p>from admin mode the user can do multiple operations on the student database and admin database<br>
+the user can do the next operations:<br>
+<ul>
+ <li>Add student record.</li>
+ <li>Remove student record.</li>
+ <li>View student record.</li>
+ <li>View all records.</li>
+ <li>Edit admin password.</li>
+ <li>Edit student grade.</li>
+</ul>
+</p>
+<h3>Student Mode</h3>
+<p>from student mode the user can do multiple operations too, but only on the student database <br>
+the user can do the next operations:<bt>
+<ul> 
+ <li>View student record.</li>
+ <li>Edit student password.</li>
+ <li>Edit student name.</li>
+</ul>
+</p>
+<p>After the user chooses certin operation he will get access to the data <br>to modifiy, add or remove some data from one of three files: <br>
+<ul>
+ <h4><li>admins.csv</li></h4>
+  <p>  In the admins.csv file the admins database is stored <br>
+    in three main categories: <br>
+    <ul>
+     <li>ID</li>
+     <li>Name</li>
+     <li>Password</li>
+    </ul>
+    </p>
+ <h4><li>records.csv</li></h4>
+  <p>  In the records.csv file the records of the students database is stored <br>
+    in five main categories: <br>
+    <ul>
+     <li>ID</li>
+     <li>Name</li>
+     <li>Age</li>
+     <li>Gender</li>
+     <li>Total Grade</li>
+    </ul>
+  </p>
+ <h4><li>students.csv</li></h4>
+  <p>  In the students.csv file the classified records of the students database is stored <br>
+    in two main categories: <br>
+    <ul>
+     <li>ID</li>
+     <li>Password</li>
+    </ul>
+  </p>
+</ul>
+And the modification is done throw multiple functions which are Distributed on <br>
+multiple modules (or folders) and the modules are Distributed on three main layers (or main folders).
 </p>
 
 ## Project Layers
@@ -123,3 +178,8 @@ depend on to manipulate the data.</p>
    <li>read_string_password</li>
   </ul>
 </ul>
+
+## User Defined Librarys
+
+<h4>std_lib.h</h4>
+<p>&nbsp;This is the only user defined library that has been created for the project and it defines some <br>&nbsp;typedefs for the data types that are used in the project and for the structs that the data of the <br>&nbsp;admins and students will be stored in and it defines some macros to be used in the project <br>&nbsp;fuctions's.</p>
