@@ -18,7 +18,7 @@ int main()
     int iter;
     for (iter = 0; iter < 81; iter++)
         printf("*");
-    printf("\n                Welcome To The Student Record System\n");
+    printf("\n                      Welcome To The Student Record System\n");
     for (iter = 0; iter < 81; iter++)
         printf("*");
 

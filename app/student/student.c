@@ -44,17 +44,17 @@ bool edit_name_of_student (uint32 ID)
 
 bool edit_password_of_student (uint32 ID)
 {
-    /* edit_password function takes ID if ID found edit password in record */
-    Record *records = NULL;
-    uint16 size; /* number of records */
+    /* edit_password function takes ID if ID found edit password in students */
+    Student *students = NULL;
+    uint16 size; /* number of students */
 
-    if (!read_data_from_records(records, &size)) /* if there is error exit */
+    if (!read_data_from_students(students, &size)) /* if there is error exit */
         return false;
 
-    uint16 iter = 0; /* to iterate through array of records */
+    uint16 iter = 0; /* to iterate through array of students */
 
     for (iter = 0; iter < size; ++iter) {
-        if (ID == records[iter].ID)
+        if (ID == students[iter].ID)
         {
             uint8 new_password[PASSWORD_SIZE];
             printf("Enter New password: ");
@@ -62,10 +62,10 @@ bool edit_password_of_student (uint32 ID)
             {
                 return false;
             }
-            edit_student_password (&records[iter], new_password); /* assign new password to records */
+            edit_student_password (&students[iter], new_password); /* assign new password to students */
 
-            /* write data to records.csv for permanent change */
-            if (!write_data_to_records(records, size))
+            /* write data to students.csv for permanent change */
+            if (!write_data_to_students(students, size))
                 return false;
 
             return true;
@@ -108,5 +108,6 @@ bool view_student_record_from_student (uint32 ID)
  *  Mina Nabil             11/5/2024 21:48          Adding editing name and password functions
  *  Mina Nabil             11/5/2024 22:21          Adding view student record function
  *  Mina Nabil             12/5/2024 03:31          Changed view_student_record_from_student function return type to bool
+ *  Mina Nabil             12/5/2024 16:44          Fix edit_password_of_student function
  * */
 /* ****************** History Log Section End ****************** */
