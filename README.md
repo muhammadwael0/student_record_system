@@ -5,7 +5,7 @@
 of a school database as it implements different operations on premade students database<br>
 and premade admins database to organize multiple admins activities on students database.<br>
 The system concists of two modes the user can choose between: Admin mode and Student mode.</p>
-<h3>Admin Mode</h3>
+<h3><u>Admin Mode</u></h3>
 <p>from admin mode the user can do multible operations on the student database and admin database<br>
 the user can do the next operations:<br>
 <ul>
@@ -17,7 +17,7 @@ the user can do the next operations:<br>
  <li>Edit student grade.</li>
 </ul>
 </p>
-<h3>Student Mode</h3>
+<h3><u>Student Mode</u></h3>
 <p>from student mode the user can do multible operations too, but only on the student database <br>
 the user can do the next operations:<bt>
 <ul> 
