@@ -9,15 +9,15 @@ and premade admins database to organize multiple admins activities on students d
 ## Project Layers
 
 <ol>
-<li><h3>UI LAYER</h3></li>
+<h3><li>UI LAYER</li></h3>
 > <p>It's the display layer for the project that the user react with and <br>
-> it uses the functions inside the **APP layer**.</p>
-<li><h3>APPLICATION LAYER</h3></li>
-> <p>It's the layer that connect the **UI layer** with the **Data access layer** <br>
-> by using a set of intermediate functions that organize both layers and it accesses the **Data access layer** only.</p>
-<li><h3>DATA ACCESS LAYER</h3></li>
+> it uses the functions inside the <strong>APP layer</strong>.</p>
+<h3><li>APPLICATION LAYER</li></h3>
+> <p>It's the layer that connect the <strong>UI layer</strong> with the <strong>Data access layer</strong> <br>
+> by using a set of intermediate functions that organize both layers and it accesses the <strong>Data access layer</strong> only.</p>
+<h3><li>DATA ACCESS LAYER</li></h3>
 > <p>It's the layer that control all data related operations as it deals with <br>
-> the row data using a set of functions that all the functions of the APP layer <br>
+> the row data using a set of functions that all the functions of the <strong>APP layer</strong> <br>
 > depend on to manipulate the data</p>
 </ol>
 
