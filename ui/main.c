@@ -25,7 +25,7 @@ int main()
     printf("1- Admin.\n");
     printf("2- Student.\n");
     printf("choose mode : ");
-    scanf("%d", &mode);
+    scanf("%hd", &mode);
 
     if (mode == M_ADMIN)
     {
@@ -34,7 +34,7 @@ int main()
             for (iter = 0; iter < TRIES; iter++)
             {
                 printf("Enter ID: ");
-                scanf("%d", &admin_id);
+                scanf("%hd", &admin_id);
                 printf("Enter Password: ");
                 scanf("%s", admin_password);
                 if (authenticate_admin(admin_id, admin_password))
@@ -53,7 +53,7 @@ int main()
             printf("5. Edit admin password.\n");
             printf("6. Edit student grade.\n\n");
             printf("Enter operation number: ");
-            scanf("%d", &operation);
+            scanf("%hd", &operation);
             switch (operation)
             {
             case 1:
