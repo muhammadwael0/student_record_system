@@ -64,7 +64,7 @@ int main()
                 for (iter = 0; iter < TRIES; iter++)
                 {
                     printf("Enter student ID: ");
-                    scanf("%d", &student_id);
+                    scanf("%ld", &student_id);
                     if (remove_student_record(student_id))
                         break;
                     else if (iter == 2)
@@ -92,7 +92,7 @@ int main()
                 for (iter = 0; iter < TRIES; iter++)
                 {
                     printf("Enter student ID: ");
-                    scanf("%d", &student_id);
+                    scanf("%ld", &student_id);
                     if (edit_grade(student_id))
                         break;
                     else if (iter == 2)
@@ -105,7 +105,7 @@ int main()
                 break;
             }
             printf("\nDo you want another operation (yes 1/no 0): ");
-            scanf("%d", &try_again);
+            scanf("%hd", &try_again);
             if (!try_again)
             {
                 printf("\n\nEnd of authorization.");
@@ -120,7 +120,7 @@ int main()
             for (iter = 0; iter < TRIES; iter++)
             {
                 printf("Enter ID: ");
-                scanf("%d", &student_id);
+                scanf("%ld", &student_id);
                 printf("Enter Password: ");
                 scanf("%s", student_password);
                 if (authenticate_student_password(authenticate_student_id(student_id), student_password))
