@@ -21,6 +21,10 @@
 
 /* ******************** Macro Section Start ******************** */
 
+#define M_ADMIN 1
+#define M_STUDENT 2
+#define TRIES 3
+
 /* ********************* Macro Section End ********************* */
 
 /* ******************* Typedef Section Start ******************* */
@@ -33,8 +37,6 @@
 
 /* ************** Global Declaration Section Start ************* */
 
-
-
 /* *************** Global Declaration Section End ************** */
 
 #endif
@@ -42,5 +44,6 @@
 /* ***************** History Log Section Start ***************** */
 /*  User                   Date                     Brief
  *  Mina Nabil             11/5/2024 23:35          Adding File Layout
+ *  Mina Nabil             12/5/2024 03:59          Adding essential macros
  */
 /* ****************** History Log Section End ****************** */
