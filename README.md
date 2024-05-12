@@ -30,7 +30,7 @@ depend on to manipulate the data</p>
 ## Project Folders & Files
 
 <ul>
- <h4><li>ui</li></h4>
+ <h4 style = "font-size: 25px"><li>ui</li></h4>
   <ul>
    <li><em>main.c</em></li>
    <li><em>main.h</em></li>
