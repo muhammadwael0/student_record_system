@@ -224,5 +224,6 @@ bool read_string_password (char *password) {
  *  Muhammad Wael          3/5/2024 23:18           Adding File Layout
  *  Muhammad wael          8/5/2024 20:00           Adding read_string function
  *  Mina Nabil             11/5/2024 13:46          small fix & adding a read_string_password function
+ *  Muhammad Wael          13/5/2024 01:14          edit two function to handle segmentation fault
  */
 /* ****************** History Log Section End ****************** */
