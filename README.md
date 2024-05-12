@@ -24,28 +24,46 @@ and premade admins database to organize multiple admins activities on students d
 ## Project Folders & Files
 
 <ul>
- <li>ui</li>
+ <h4><li>ui</li></h4>
   <ul>
-   <li>main.c</li>
-   <li>main.h</li>
+   <li><em>main.c</em></li>
+   <li><em>main.h</em></li>
   </ul>
- <li>app</li>
+ <h4><li>app</li></h4>
   <ul>
-   <li>admin</li>
+   <li><strong>admin</strong></li>
     <ul>
-     <li>admin.c</li>
-     <li>admin.h</li>
+     <li><em>admin.c</em></li>
+     <li><em>admin.h</em></li>
     </ul>
-   <li>authentication</li>
+   <li><strong>authentication</strong></li>
     <ul>
-     <li>authentication.c</li>
-     <li>authentication.h</li>
+     <li><em>authentication.c</em></li>
+     <li><em>authentication.h</em></li>
     </ul>
-   <li>student</li>
+   <li><strong>student</strong></li>
     <ul>
-     <li>student.c</li>
-     <li>astudent.h</li>
+     <li><em>student.c</em></li>
+     <li><em>astudent.h</em></li>
     </ul>
   </ul>
- <li>data</li>
+ <h4><li>data</li></h4>
+  <ul>
+   <li><strong>data_management</strong></li>
+    <ul>
+     <li><em>data_management.c</em></li>
+     <li><em>data_management.h</em></li>
+    </ul>
+   <li><strong>file_access</strong></li>
+    <ul>
+     <li><em>file_access.c</em></li>
+     <li><em>file_access.h</em></li>
+    </ul>
+   <li><strong>memory_management</strong></li>
+    <ul>
+     <li><em>memory_management.c</em></li>
+     <li><em>memory_management.h</em></li>
+    </ul>
+   <li><em>std_lib.h</em></li>
+  </ul>
 </ul>
