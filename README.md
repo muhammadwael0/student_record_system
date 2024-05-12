@@ -16,13 +16,13 @@ it uses the functions inside the <strong>APP layer</strong>.</p>
 </blockquote>
 <h3><li>APPLICATION LAYER</li></h3>
 <blockquote>
-<p>It's the layer that connect the <strong>UI layer</strong> with the <strong>Data access layer</strong> <br>
-by using a set of intermediate functions that organize both layers and it accesses the <strong>Data access layer</strong> only.</p>
+<p>It's the layer that connect the <strong>UI layer</strong> with the <strong>Data access layer</strong>
+by using a set of intermediate functions <br>that organize both layers and it accesses the <strong>Data access layer</strong> only.</p>
 </blockquote>
 <h3><li>DATA ACCESS LAYER</li></h3>
 <blockquote>
-<p>It's the layer that control all data related operations as it deals with <br>
-the row data using a set of functions that all the functions of the <strong>APP layer</strong> <br>
+<p>It's the layer that control all data related operations as it deals with the row data <br>
+using a set of functions that all the functions of the <strong>APP layer</strong> <br>
 depend on to manipulate the data</p>
 </blockquote>
 </ol>
