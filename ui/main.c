@@ -30,22 +30,23 @@ int main()
 
     if (mode == M_ADMIN)
     {
+
+        for (iter = 0; iter < TRIES; iter++)
+        {
+            printf("Enter ID: ");
+            scanf("%lu", &admin_id);
+            printf("Enter Password: ");
+            scanf("%s", admin_password);
+            if (authenticate_admin(admin_id, admin_password))
+                break;
+            else if (iter == 2)
+            {
+                printf("Access denied.");
+                return 0;
+            }
+        }
         while (true)
         {
-            for (iter = 0; iter < TRIES; iter++)
-            {
-                printf("Enter ID: ");
-                scanf("%lu", &admin_id);
-                printf("Enter Password: ");
-                scanf("%s", admin_password);
-                if (authenticate_admin(admin_id, admin_password))
-                    break;
-                else if (iter == 2)
-                {
-                    printf("Access denied.");
-                    return 0;
-                }
-            }
             printf("Choose operation:-\n\n");
             printf("1. Add student record.\n");
             printf("2. Remove student record.\n");
