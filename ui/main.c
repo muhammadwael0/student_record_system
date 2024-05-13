@@ -115,22 +115,23 @@ int main()
     }
     else if (mode == M_STUDENT)
     {
+
+        for (iter = 0; iter < TRIES; iter++)
+        {
+            printf("Enter ID: ");
+            scanf("%ld", &student_id);
+            printf("Enter Password: ");
+            scanf("%s", student_password);
+            if (authenticate_student_password(authenticate_student_id(student_id), student_password))
+                break;
+            else if (iter == 2)
+            {
+                printf("Access denied.");
+                return 0;
+            }
+        }
         while (true)
         {
-            for (iter = 0; iter < TRIES; iter++)
-            {
-                printf("Enter ID: ");
-                scanf("%ld", &student_id);
-                printf("Enter Password: ");
-                scanf("%s", student_password);
-                if (authenticate_student_password(authenticate_student_id(student_id), student_password))
-                    break;
-                else if (iter == 2)
-                {
-                    printf("Access denied.");
-                    return 0;
-                }
-            }
             printf("Choose operation:-\n\n");
             printf("1. View your record.\n");
             printf("2. Edit your password.\n");
