@@ -58,7 +58,7 @@ the user can do the next operations:<bt>
   </p>
 </ul>
 And the modification is done throw multiple functions which are Distributed on <br>
-multiple modules (or folders) and the modules are Distributed on three main layers (or main folders).
+multiple modules (or folders) and the modules are Distributed on <strong>three main layers</strong> (or main folders).
 </p>
 
 ## Project Layers
