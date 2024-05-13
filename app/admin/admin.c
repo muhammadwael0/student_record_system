@@ -99,15 +99,12 @@ bool edit_password_of_admin (uint32 ID)
         if (ID == admins[iter].ID)
         {
             char pass[PASSWORD_SIZE];
-            printf("HI\n");
             if (!read_string_password(pass))
             {
-                printf("Bye\n");
                 free(admins);
                 admins = NULL;
                 return false;
             }
-            printf("HI\n");
              /* assign password to admins */
             edit_admin_password(&admins[iter], pass);
 
@@ -158,15 +155,25 @@ bool remove_student_record (uint32 ID)
     /* remove_student_record function takes ID if found remove record */
 
     Record *records = NULL;
-    uint16 size_of_records = 0; /* number of records */
+    int16 size_of_records = 0; /* number of records */
 
-    if (!read_data_from_records(records, &size_of_records)) /* if there is error return false */
+    if (!read_data_from_records(&records, &size_of_records)) /* if there is error return false */
+        return false;
+
+    if (size_of_records == -1)
         return false;
 
     Student *students = NULL;
-    uint16 size_of_students = 0; /* number of students */
+    int16 size_of_students = 0; /* number of students */
 
-    if (!read_data_from_students(students, &size_of_students)) /* if there is error return false */
+    if (!read_data_from_students(&students, &size_of_students)) /* if there is error return false */
+    {
+        free (records);
+        records = NULL;
+        return false;
+    }
+
+    if (size_of_students == -1)
     {
         free (records);
         records = NULL;
@@ -295,25 +302,45 @@ bool add_student_record (void)
 {
     /* add_student_record function to add record to records */
     Record *records = NULL;
-    uint16 size_of_records = 0; /* number of records */
+    int16 size_of_records = 0; /* number of records */
 
-    if (!read_data_from_records(records, &size_of_records)) /* if there is error return false */
+    if (!read_data_from_records(&records, &size_of_records)) /* if there is error return false */
+        return false;
+
+    if (size_of_records == -1)
         return false;
 
     Student *students = NULL;
-    uint16 size_of_students = 0; /* number of students */
+    int16 size_of_students = 0; /* number of students */
 
-    if (!read_data_from_students(students, &size_of_students)) /* if there is error return false */
+    if (!read_data_from_students(&students, &size_of_students)) /* if there is error return false */
+    {
+        free (records);
+        records = NULL;
+        return false;
+    }
+
+    if (size_of_students == -1)
     {
         free (records);
         records = NULL;
         return false;
     }
     uint16 iter; /* to iterate through array of records and students */
+//    for (int i = 0; i <= size_of_students; ++i) {
+//        printf("id : %ld\n", students[i].ID);
+//        printf("pass : %s\n", students[i].password);
+//    }
+//    for (int j = 0; j <= size_of_records; ++j) {
+//        printf("id : %ld\n", records[j].ID);
+//        printf("name : %s\n", records[j].name);
+//        printf("gender : %s\n", records[j].gender);
+//        printf("age : %hhu\n", records[j].age);
+//        printf("grade : %hhu\n", records[j].total_grade);
+//    }
+    Record *new_records = (Record *) malloc((size_of_records + 1) * sizeof (Record));
 
-    records = realloc(records, size_of_records + 1);
-
-    if (records == NULL)
+    if (new_records == NULL)
     {
         free(records);
         free(students);
@@ -323,59 +350,85 @@ bool add_student_record (void)
     }
 
     /* new students that hold the new data */
-    students = realloc(students, size_of_students + 1);
+    Student *new_students = malloc((size_of_students + 1) * sizeof (Student));
 
-    if (students == NULL)
+    if (new_students == NULL)
     {
         free (records);
         free (students);
+        free (new_records);
         records = NULL;
         students = NULL;
+        new_records = NULL;
         return false;
     }
+    /* copy old data */
+    for (iter = 0; iter < size_of_records; ++iter) {
+        new_records[iter] = records[iter];
+    }
+    for (iter = 0; iter < size_of_records; ++iter) {
+        new_students[iter] = students[iter];
+    }
 
-    students[size_of_students].ID = students[size_of_students - 1].ID + 1;
-    strcpy(students[size_of_students].password, DEFAULT_PASSWORD);
+    new_students[size_of_students].ID = students[size_of_students - 1].ID + 1;
+    strcpy(new_students[size_of_students].password, DEFAULT_PASSWORD);
 
-    records[size_of_records].ID = students[size_of_students - 1].ID + 1;
-    if (!read_string_name(records[size_of_records].name)) /* take a string name from user */
+    new_records[size_of_records].ID = students[size_of_students - 1].ID + 1;
+    if (!read_string_name(new_records[size_of_records].name)) /* take a string name from user */
     {
         free (records);
         free (students);
+        free (new_records);
+        free (new_students);
         records = NULL;
         students = NULL;
+        new_records = NULL;
+        new_students = NULL;
         return false;
     }
     /* take necessary data from user */
     printf("Enter Gender (Male / Female): ");
-    scanf("%s", records[size_of_records].gender);
+    scanf("%s", new_records[size_of_records].gender);
     printf("Enter Age: ");
-    scanf("%u", records[size_of_records].age);
+    scanf("%u", &new_records[size_of_records].age);
     printf("Enter total grade: ");
-    scanf("%u", records[size_of_records].total_grade);
+    scanf("%u", &new_records[size_of_records].total_grade);
+
     /* write new data to records */
-    if(!write_data_to_records(records, size_of_records + 1))
+    if(!write_data_to_records(new_records, size_of_records + 1))
     {
         free (records);
         free (students);
+        free (new_records);
+        free (new_students);
         records = NULL;
         students = NULL;
+        new_records = NULL;
+        new_students = NULL;
         return false;
     }
     /* write new data to students */
-    if(!write_data_to_students(students, size_of_students + 1))
+    if(!write_data_to_students(new_students, size_of_students + 1))
     {
         free (records);
         free (students);
+        free (new_records);
+        free (new_students);
         records = NULL;
         students = NULL;
+        new_records = NULL;
+        new_students = NULL;
         return false;
     }
-
+    /* free allocated memory */
     free (records);
     free (students);
+    free (new_records);
+    free (new_students);
     records = NULL;
     students = NULL;
+    new_records = NULL;
+    new_students = NULL;
     return true;
 }
 
@@ -391,5 +444,6 @@ bool add_student_record (void)
  *  Muhammad Wael          12/5/2024 00:49           Adding add record function
  *  Muhammad Wael          12/5/2024 01:52           modify all functions to handle free function
  *  Mina Nabil             12/5/2024 02:48           Changed view_student_record function return type to bool
+ *  Muhammad Wael          13/5/2024 03:21           Edit all functions
  */
 /* ****************** History Log Section End ****************** */
