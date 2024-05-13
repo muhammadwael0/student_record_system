@@ -49,7 +49,7 @@ bool authenticate_admin (uint32 id, uint8 *password)
     return false;
 }
 
-uint16 authenticate_student_id (uint32 id)
+int16 authenticate_student_id (uint32 id)
 {
     /* authenticate_student_id function used to check if id is true */
     Student *students = NULL;
@@ -75,11 +75,11 @@ uint16 authenticate_student_id (uint32 id)
     //printf("Wrong ID\n");
     free(students); /* free allocated memory */
     students = NULL;
-    return false;
+    return -1;
 }
 
 
-bool authenticate_student_password (uint16 id_check, uint8 *password)
+bool authenticate_student_password (int16 id_check, uint8 *password)
 {
     /* authenticate_student_password function used to check if password of the id is true */
     Student *students = NULL;
@@ -90,7 +90,7 @@ bool authenticate_student_password (uint16 id_check, uint8 *password)
     if (size == -1)
         return false;
 
-    if(id_check)
+    if(id_check >= 0)
     {
         if (!strcmp(password, students[id_check].password)) /* compare two strings */
         {
@@ -124,5 +124,6 @@ bool authenticate_student_password (uint16 id_check, uint8 *password)
  *  Muhammad Wael          10/5/2024 22:29          add authenticate admin function
  *  Mina Nabil             11/5/2024 19:51          add authenticate_student_id & authenticate_student_password functions
  *  Muhammad Wael          12/5/2024 1:26           small fix
+ *  Mina Nabil             13/5/2024 03:35          adjustment to the authenticate_student_password function id_check data type & authenticate_student_id return type
  * */
 /* ****************** History Log Section End ****************** */
