@@ -15,9 +15,9 @@
 /* ******************** Include Section End ******************** */
 
 /* ******************** Macro Section Start ******************** */
-#define ADMINS "admins.csv"
-#define STUDENTS "students.csv"
-#define RECORDS "records.csv"
+#define ADMINS "../data/file_access/admins.csv"
+#define STUDENTS "../data/file_access/students.csv"
+#define RECORDS "../data/file_access/records.csv"
 /* ********************* Macro Section End ********************* */
 
 /* ******************* Typedef Section Start ******************* */
