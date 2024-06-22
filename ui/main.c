@@ -19,7 +19,6 @@ int main()
     for (iter = 0; iter < 115; iter++)
         printf("=");
 
-//    printf("\n                      Welcome To The Student Record System\n");
     printf("\n      _____ _             _            _   _____                        _  _____           _\n");
     printf("     / ____| |           | |          | | |  __ \\                      | |/ ____|         | |\n");
     printf("    | (___ | |_ _   _  __| | ___ _ __ | |_| |__) |___  ___ ___  _ __ __| | (___  _   _ ___| |_ ___ _ __ ___\n");

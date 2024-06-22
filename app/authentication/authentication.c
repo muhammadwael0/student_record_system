@@ -72,7 +72,6 @@ int16 authenticate_student_id (uint32 id)
             return iter;
         }
     }
-    //printf("Wrong ID\n");
     free(students); /* free allocated memory */
     students = NULL;
     return -1;

@@ -327,17 +327,6 @@ bool add_student_record (void)
         return false;
     }
     uint16 iter; /* to iterate through array of records and students */
-//    for (int i = 0; i <= size_of_students; ++i) {
-//        printf("id : %ld\n", students[i].ID);
-//        printf("pass : %s\n", students[i].password);
-//    }
-//    for (int j = 0; j <= size_of_records; ++j) {
-//        printf("id : %ld\n", records[j].ID);
-//        printf("name : %s\n", records[j].name);
-//        printf("gender : %s\n", records[j].gender);
-//        printf("age : %hhu\n", records[j].age);
-//        printf("grade : %hhu\n", records[j].total_grade);
-//    }
     Record *new_records = (Record *) malloc((size_of_records + 1) * sizeof (Record));
 
     if (new_records == NULL)
