@@ -19,7 +19,6 @@ int main()
     for (iter = 0; iter < 115; iter++)
         printf("%s=%s", BLUE, RESET);
 
-//    printf("\n                      Welcome To The Student Record System\n");
     printf("\n%s      _____ _             _            _ %s  _____                        _%s  _____           _\n", RED, YELLOW, RED);
     printf("%s     / ____| |           | |          | |%s |  __ \\                      | |%s/ ____|         | |\n", RED, YELLOW, RED);
     printf("%s    | (___ | |_ _   _  __| | ___ _ __ | |_%s| |__) |___  ___ ___  _ __ __| | %s(___  _   _ ___| |_ ___ _ __ ___\n", RED, YELLOW, RED);

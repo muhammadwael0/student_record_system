@@ -21,17 +21,9 @@ bool edit_admin_password (Admin *admin, char *new_password)
     /* to edit password of admin */
 
     /* if pass > allow size return error so iter to keep track pass digits */
-    //uint8 iter = 0;
     if (strlen(new_password) >= PASSWORD_SIZE)
         return false;
     sscanf(new_password, "%s", admin->password);
-    /*while (*new_password != '\0')
-    {
-        admin->password[iter] = *new_password;
-        new_password++;
-        iter++;
-    }
-    admin->password[iter] = '\0';*/
     return true;
 }
 
@@ -40,17 +32,9 @@ bool edit_student_password (Student *student, char *new_password)
     /* to edit password of student */
 
     /* if pass > allow size return error so iter to keep track pass digits */
-    //uint8 iter = 0;
     if (strlen(new_password) >= PASSWORD_SIZE)
         return false;
     sscanf(new_password, "%s", student->password);
-    /*while (*new_password != '\0')
-    {
-        student->password[iter] = *new_password;
-        new_password++;
-        iter++;
-    }
-    student->password[iter] = '\0';*/
     return true;
 }
 
@@ -59,17 +43,9 @@ bool edit_student_name (Record *record, char *new_name)
     /* to edit name of student in record */
 
     /* if name > allow size return error so iter to keep track pass digits */
-    //uint8 iter = 0;
     if (strlen(new_name) >= NAME_SIZE)
         return false;
     sscanf(new_name, "%[^\0]s", record->name);
-    /*while (*new_name != '\0')
-    {
-        record->name[iter] = *new_name;
-        new_name++;
-        iter++;
-    }
-    record->name[iter] = '\0';*/
     return true;
 }
 
